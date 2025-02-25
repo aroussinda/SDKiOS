@@ -13,11 +13,14 @@ let package = Package(
     platforms: [
         .iOS(.v13)
     ],
+    dependencies: [
+        .package(url: "https://github.com/aroussinda/SDKiOS", from: "1.0.0")
+    ]
        products: [
-           .library(name: "MySDK")
+           .library(name: "MySDK", targets: ["MySDK"])
        ],
        targets: [
-           .target(name: "MySDK")
+           .target(name: "MySDK", path: "Sources")
        ]
 )
 
