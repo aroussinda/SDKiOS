@@ -23,6 +23,7 @@
 /* Begin PBXFileReference section */
 		C40CE28E2D6DB13E002C93EA /* MySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40CE2982D6DB13F002C93EA /* MySDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40CE2C72D6DBD68002C93EA /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -73,6 +74,7 @@
 		C40CE2842D6DB13E002C93EA = {
 			isa = PBXGroup;
 			children = (
+				C40CE2C72D6DBD68002C93EA /* Package.swift */,
 				C40CE2902D6DB13E002C93EA /* MySDK */,
 				C40CE29C2D6DB13F002C93EA /* MySDKTests */,
 				C40CE28F2D6DB13E002C93EA /* Products */,
