@@ -14,10 +14,10 @@ let package = Package(
         .iOS(.v13)
     ],
        products: [
-           .library(name: "MySDK", targets: ["MySDK"])
+           .library(name: "MySDK")
        ],
        targets: [
-           .target(name: "MySDK", path: "Sources")
+           .target(name: "MySDK")
        ]
 )
 
