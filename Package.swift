@@ -8,7 +8,7 @@
 
 import PackageDescription
 
-// swift-tools-version:5.7
+// swift-tools-version:5.5
 let package = Package(
     name: "MySDK",
     platforms: [
