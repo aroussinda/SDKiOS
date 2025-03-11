@@ -20,7 +20,7 @@ let package = Package(
         .package(url: "https://github.com/aroussinda/SDKiOS.git", from: "1.0.0")
     ],
     targets: [
-        .target(name: "MySDK", dependencies: [], path: "Sources")
+        .target(name: "MySDK", dependencies: [], path: "MySDK")
     ]
 )
 
