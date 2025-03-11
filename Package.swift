@@ -6,22 +6,21 @@
 //
 
 
+// swift-tools-version:6.0
 import PackageDescription
-
-// swift-tools-version:5.5
 let package = Package(
     name: "MySDK",
     platforms: [
         .iOS(.v13)
     ],
+    products: [
+        .library(name: "MySDK", targets: ["MySDK"])
+    ],
     dependencies: [
-        .package(url: "https://github.com/aroussinda/SDKiOS", from: "1.0.0")
+        .package(url: "https://github.com/aroussinda/SDKiOS.git", from: "1.0.0")
+    ],
+    targets: [
+        .target(name: "MySDK", dependencies: [], path: "Sources")
     ]
-       products: [
-           .library(name: "MySDK", targets: ["MySDK"])
-       ],
-       targets: [
-           .target(name: "MySDK", path: "Sources")
-       ]
 )
 
