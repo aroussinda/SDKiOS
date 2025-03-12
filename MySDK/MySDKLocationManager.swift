@@ -52,6 +52,6 @@ public class MySDKLocationManager: NSObject, CLLocationManagerDelegate {
            }
        }
     public static func getLocation() -> CLLocation? {
-           return location
+        return MySDKLocationManager.location
        }
 }
