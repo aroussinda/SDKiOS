@@ -27,3 +27,25 @@ struct SheetView: View {
         .background(Color.white)
     }
 }
+
+
+struct SheetViewHTML: View {
+    var challengeResponse: STDSChallengeResponse
+    var onClose: () -> Void
+
+    var body: some View {
+        VStack {
+            Text(challengeResponse.challengeInfoHeader!)  // Assuming `STDSChallengeResponse` has a `message` property
+                .foregroundColor(.red)
+                .font(.title)
+                .padding()
+            
+            Button("Close") {
+                onClose()
+            }
+            .padding()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.white)
+    }
+}

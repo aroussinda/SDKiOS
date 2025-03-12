@@ -11,7 +11,8 @@ import SwiftUI
 import CoreLocation
 
 public class MySDKManager {
-    
+    public var viewModel = ChallengeResponseViewModel()
+
     public init() {}
     
 
@@ -23,6 +24,17 @@ public class MySDKManager {
            sheetView.modalPresentationStyle = .pageSheet
            viewController.present(sheetView, animated: true, completion: nil)
        }
+    public func showSDKSheetHTML(from viewController: UIViewController, challengeResponse: STDSChallengeResponse) {
+        viewModel.loadHTMLChallenge()
+        
+        let sheetView = UIHostingController(rootView: SheetViewHTML(challengeResponse: viewModel.selectedResponseSTDS!, onClose: {
+            viewController.dismiss(animated: true, completion: nil)
+        }))
+        sheetView.modalPresentationStyle = .pageSheet
+        viewController.present(sheetView, animated: true, completion: nil)
+       }
+    
+    
     public func fetchLocation() -> CLLocation? {
            return MySDKLocationManager.shared.getLocation()
        }
