@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftUI
+import CoreLocation
 
 public class MySDKManager {
     
@@ -21,5 +22,7 @@ public class MySDKManager {
            sheetView.modalPresentationStyle = .pageSheet
            viewController.present(sheetView, animated: true, completion: nil)
        }
-    
+    public func fetchLocation() -> CLLocation? {
+           return MySDKLocationManager.shared.getLocation()
+       }
 }
