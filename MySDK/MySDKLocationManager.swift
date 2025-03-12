@@ -16,7 +16,8 @@ public class MySDKLocationManager: NSObject, CLLocationManagerDelegate {
     @Published var isAuthorized: Bool = false
     @Published var location: CLLocation? = nil
     @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
-    
+    public static let shared = MySDKLocationManager()
+
     
     public override init() {
         super.init()
