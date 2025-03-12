@@ -17,7 +17,7 @@ let package = Package(
         .library(name: "MySDK", targets: ["MySDK"])
     ],
     dependencies: [
-        .package(url: "https://github.com/aroussinda/SDKiOS.git", from: "1.0.0")
+        .package(url: "https://github.com/aroussinda/SDKiOS.git", .exact("1.0.0"))
     ],
     targets: [
         .target(name: "MySDK",
