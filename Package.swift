@@ -24,9 +24,7 @@ let package = Package(
                 dependencies: [],
                 path: "MySDK",
                 sources: ["MySDKManager.swift", "MySDKLocationManager.swift"], // Include both files here
-                resources: [
-                 .process("Info.plist")
-                ])
+               )
     ]
 )
 
