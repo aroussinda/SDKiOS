@@ -11,11 +11,9 @@ import CoreLocation
 public class MySDKLocationManager: NSObject, CLLocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
-    @Published var latitude: String = ""
-    @Published var longitude: String = ""
-    @Published var isAuthorized: Bool = false
-    @Published var location: CLLocation? = nil
-    @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
+    public var location: CLLocation? = nil
+    public var authorizationStatus: CLAuthorizationStatus = .notDetermined
+
     public static let shared = MySDKLocationManager()
 
     
@@ -31,18 +29,27 @@ public class MySDKLocationManager: NSObject, CLLocationManagerDelegate {
     public func requestLocationPermission() {
         locationManager.requestWhenInUseAuthorization() // or requestAlwaysAuthorization()
     }
-
-    // Handle authorization status updates
-    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .authorizedAlways, .authorizedWhenInUse:
-            print("✅ Location access granted")
-        case .denied, .restricted:
-            print("⚠️ L'utilisateur a refusé la localisation.")
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        @unknown default:
-            locationManager.startUpdatingLocation()
+    // Delegate method to update location
+   public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let newLocation = locations.last {
+            location = newLocation
+          
         }
     }
+    // Handle authorization status updates
+    public func checkLocationPermission() {
+           let status = CLLocationManager.authorizationStatus()
+           
+           if status == .notDetermined {
+               // Demande l'autorisation à l'utilisateur
+               locationManager.requestWhenInUseAuthorization()
+           } else if status == .denied || status == .restricted {
+               print("⚠️ L'utilisateur a refusé la localisation.")
+              
+           } else {
+               // Démarrer la mise à jour de la localisation
+               locationManager.startUpdatingLocation()
+           }
+       }
+
 }
