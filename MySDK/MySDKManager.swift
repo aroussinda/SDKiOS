@@ -14,7 +14,8 @@ public class MySDKManager {
     
     public init() {}
     
-    @MainActor
+
+    
     public func showSDKSheet(from viewController: UIViewController, message: String) {
            let sheetView = UIHostingController(rootView: SheetView(message: message, onClose: {
                viewController.dismiss(animated: true, completion: nil)
