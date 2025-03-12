@@ -6,12 +6,19 @@
 //
 
 import Foundation
+import UIKit
+import SwiftUI
 
 public class MySDKManager {
     
     public init() {}
 
-    public func sayHello() -> String {
-        return "Hello from MySDK!"
-    }
+    public func showSDKSheet(from viewController: UIViewController, message: String) {
+           let sheetView = UIHostingController(rootView: SheetView(message: message, onClose: {
+               viewController.dismiss(animated: true, completion: nil)
+           }))
+
+           sheetView.modalPresentationStyle = .pageSheet
+           viewController.present(sheetView, animated: true, completion: nil)
+       }
 }

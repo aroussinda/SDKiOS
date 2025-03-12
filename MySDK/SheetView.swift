@@ -1,0 +1,28 @@
+//
+//  SheetView.swift
+//  MySDK
+//
+//  Created by Sinda Arous on 11/03/2025.
+//
+
+import SwiftUI
+
+struct SheetView: View {
+    var message: String
+    var onClose: () -> Void
+
+    var body: some View {
+        VStack {
+            Text(message)
+                .font(.title)
+                .padding()
+            
+            Button("Close") {
+                onClose()
+            }
+            .padding()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.white)
+    }
+}
