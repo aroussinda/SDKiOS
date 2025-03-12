@@ -38,11 +38,11 @@ public class MySDKLocationManager: NSObject, CLLocationManagerDelegate {
         case .authorizedAlways, .authorizedWhenInUse:
             print("✅ Location access granted")
         case .denied, .restricted:
-            print("❌ Location access denied")
+            print("⚠️ L'utilisateur a refusé la localisation.")
         case .notDetermined:
-            print("❓ Location permission not requested yet")
+            locationManager.requestWhenInUseAuthorization()
         @unknown default:
-            print("⚠️ Unknown authorization status")
+            locationManager.startUpdatingLocation()
         }
     }
 }
