@@ -20,6 +20,7 @@ public class MySDKLocationManager: NSObject, CLLocationManagerDelegate {
 
     
     public override init() {
+    
         super.init()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization() // This works correctly now

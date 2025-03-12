@@ -18,7 +18,6 @@ public class MySDKManager {
            let sheetView = UIHostingController(rootView: SheetView(message: message, onClose: {
                viewController.dismiss(animated: true, completion: nil)
            }))
-
            sheetView.modalPresentationStyle = .pageSheet
            viewController.present(sheetView, animated: true, completion: nil)
        }
