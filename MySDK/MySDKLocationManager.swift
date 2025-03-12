@@ -11,10 +11,18 @@ import CoreLocation
 public class MySDKLocationManager: NSObject, CLLocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
+    @Published var latitude: String = ""
+    @Published var longitude: String = ""
+    @Published var isAuthorized: Bool = false
+    @Published var location: CLLocation? = nil
+    @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
+    
     
     public override init() {
         super.init()
         locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization() // This works correctly now
+        locationManager.startUpdatingLocation()  // Start updating the location
     }
     
     // Request location permission
