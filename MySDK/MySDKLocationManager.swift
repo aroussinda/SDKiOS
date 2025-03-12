@@ -11,7 +11,7 @@ import CoreLocation
 public class MySDKLocationManager: NSObject, CLLocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
-    public var location: CLLocation? = nil
+    public static var location: CLLocation? = nil
     public var authorizationStatus: CLAuthorizationStatus = .notDetermined
 
     public static let shared = MySDKLocationManager()
@@ -32,8 +32,8 @@ public class MySDKLocationManager: NSObject, CLLocationManagerDelegate {
     // Delegate method to update location
    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let newLocation = locations.last {
-            location = newLocation
-          
+            MySDKLocationManager.location = newLocation // Save the location
+
         }
     }
     // Handle authorization status updates
