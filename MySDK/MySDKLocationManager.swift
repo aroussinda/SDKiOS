@@ -11,7 +11,7 @@ import CoreLocation
 public class MySDKLocationManager: NSObject, CLLocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
-    public static var location: CLLocation? = nil
+    public var location: CLLocation? = nil
     public var authorizationStatus: CLAuthorizationStatus = .notDetermined
 
     public static let shared = MySDKLocationManager()
@@ -32,7 +32,7 @@ public class MySDKLocationManager: NSObject, CLLocationManagerDelegate {
     // Delegate method to update location
    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let newLocation = locations.last {
-            MySDKLocationManager.location = newLocation // Save the location
+            location = newLocation // Save the location
 
         }
     }
@@ -52,6 +52,6 @@ public class MySDKLocationManager: NSObject, CLLocationManagerDelegate {
            }
        }
     public func getLocation() -> CLLocation? {
-        return MySDKLocationManager.location
+        return location
        }
 }
