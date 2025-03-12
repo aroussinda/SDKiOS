@@ -14,6 +14,7 @@ struct SheetView: View {
     var body: some View {
         VStack {
             Text(message)
+                .foregroundColor(.red)
                 .font(.title)
                 .padding()
             
