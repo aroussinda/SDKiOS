@@ -11,26 +11,13 @@ public class ChallengeResponseViewModel {
     public var selectedResponseSTDS: STDSChallengeResponse?
     
     func loadHTMLChallenge() {
-        print("here")
-
-        let filePath = "/Users/sindaarous/Desktop/SDK/SDKiOS/MySDK/acs_challenge.html"
-        print("Checking file at path: \(filePath)")
-
-        let fileManager = FileManager.default
-
-        // Check if the file exists
-        if fileManager.fileExists(atPath: filePath) {
-            print("✅ File exists at: \(filePath)")
-
-            do {
-                let htmlContent = try String(contentsOfFile: filePath, encoding: .utf8)
-                print("✅ Loading HTML Challenge...")
-            } catch {
-                print("❌ Error reading file: \(error.localizedDescription)")
-            }
+        if let fileURL = Bundle.main.url(forResource: "acs_challenge", withExtension: "html") {
+            let htmlContent = try? String(contentsOf: fileURL, encoding: .utf8)
+            print("✅ Loaded from bundle")
         } else {
-            print("❌ File does NOT exist at path: \(filePath)")
+            print("❌ File not found in the Bundle")
         }
+
             /*let response = STDSChallengeResponse(
                 threeDSServerTransactionID: "",
                 acsCounterACStoSDK: "",
