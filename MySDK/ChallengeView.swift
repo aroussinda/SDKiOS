@@ -65,7 +65,7 @@ struct WebView: UIViewRepresentable {
         let webView = WKWebView()
         webView.loadHTMLString(htmlContent, baseURL: nil)
         
-        if let base64String = convertImageToBase64(named: "logo") , let base64String2 = convertImageToBase64(named: "logo") {
+      /*  if let base64String = convertImageToBase64(named: "logo") , let base64String2 = convertImageToBase64(named: "logo") {
           
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -76,16 +76,19 @@ struct WebView: UIViewRepresentable {
                               """
                 webView.evaluateJavaScript(jsCode, completionHandler: nil)
             }
-        }
+        }*/
         return webView
     }
 
     func updateUIView(_ uiView: WKWebView, context: Context) {}
-    private func convertImageToBase64(named imageName: String) -> String? {
-           guard let uiImage = UIImage(named: imageName),
-                 let imageData = uiImage.pngData() else {
-               return nil
-           }
-           return imageData.base64EncodedString()
-       }
+    
+   /* public func convertImageToBase64(named imageName: String) -> String? {
+        guard let uiImage = UIImage(named: imageName),
+              let imageData = UIImagePNGRepresentation(uiImage) else {
+            return nil
+        }
+        return imageData.base64EncodedString()
+    }*/
+
+
 }
