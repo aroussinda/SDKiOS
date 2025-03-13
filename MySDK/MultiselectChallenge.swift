@@ -99,18 +99,19 @@ struct MultiSelectChallengeView: View {
                     .background(Color(footerCustomization.backgroundColor))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-            }
-            .navigationTitle("My Title") // Set the title
-                        .navigationBarTitleDisplayMode(.inline) // Set the display mode for the title
-                        .toolbar {
-                            ToolbarItem(placement: .navigationBarTrailing) {
-                                Button(action: {
-                                    print("Button tapped")
-                                }) {
-                                    Text(navigationCustomization.buttonText) // Display the button text
+                .navigationTitle("My Title") // Set the title
+                            .navigationBarTitleDisplayMode(.inline) // Set the display mode for the title
+                            .toolbar {
+                                ToolbarItem(placement: .navigationBarTrailing) {
+                                    Button(action: {
+                                        print("Button tapped")
+                                    }) {
+                                        Text(navigationCustomization.buttonText) // Display the button text
+                                    }
                                 }
                             }
-                        }
+            }
+            
         }
     }
     func toggleSelection(_ value: String) {
