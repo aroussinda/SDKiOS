@@ -19,7 +19,6 @@ struct ChallengeResponseView: View {
 
     
     let response: STDSChallengeResponse
-    @Environment(\.dismiss) var dismiss  // For dismissing the sheet
     @Environment(\.presentationMode) var presentationMode  // Pour fermer la sheet
   
 

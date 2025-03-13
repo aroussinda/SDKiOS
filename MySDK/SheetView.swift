@@ -10,7 +10,7 @@ import SwiftUI
 struct SheetView: View {
     var message: String
     var onClose: () -> Void
-
+ 
     var body: some View {
         VStack {
             Text(message)
@@ -30,12 +30,13 @@ struct SheetView: View {
 
 
 struct SheetViewHTML: View {
-    
+    var response: STDSChallengeResponse
     var onClose: () -> Void
+  
 
     var body: some View {
         VStack {
-            Text("test")  // Assuming `STDSChallengeResponse` has a `message` property
+            Text(response.challengeInfoHeader!)  // Assuming `STDSChallengeResponse` has a `message` property
                 .foregroundColor(.red)
                 .font(.title)
                 .padding()
