@@ -188,10 +188,7 @@ struct IssuerImageView: View {
                     .padding()
             } else if let ImageURL = ImageURL {
                 // Load the image if it's not downloaded
-                ProgressView()
-                    .onAppear {
-                        loadImage(from: ImageURL)
-                    }
+               
             } else {
                 // Fallback if no URL is provided
                 Text("Issuer image is unavailable.")
