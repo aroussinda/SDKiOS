@@ -44,8 +44,18 @@ struct SheetViewHTML: View {
   
 
     var body: some View {
-        MultiSelectChallengeView( response: response )
-        
+        switch response.acsUIType {
+            //case .html:
+        case .multiSelect:
+            MultiSelectChallengeView( response: response )
+        case .oob:
+            oobChallengeView( response: response )
+        default:
+            // Handle any unexpected cases
+            Text("Unhandled STDSACSUIType case")
+                .foregroundColor(.red)
+            
+        }
     }
    
 }

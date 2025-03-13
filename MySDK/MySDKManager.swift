@@ -43,6 +43,24 @@ public class MySDKManager {
         viewController.present(sheetView, animated: true, completion: nil)
        
        }
+    public func showSDKSheetOOB(from viewController: UIViewController) {
+        print("click")
+        selectedResponseSTDS = viewModel.createOOBChallengeResponse()
+       
+        print("loaded")
+        if let header = selectedResponseSTDS?.challengeInfoHeader {
+            print(header)
+        } else {
+            print("challengeInfoHeader is nil")
+        }
+        print("nul")
+        let sheetView = UIHostingController(rootView: SheetViewHTML(response: selectedResponseSTDS!, onClose: {
+            viewController.dismiss(animated: true, completion: nil)
+        }))
+        sheetView.modalPresentationStyle = .pageSheet
+        viewController.present(sheetView, animated: true, completion: nil)
+       
+       }
     
     
     public func fetchLocation() -> CLLocation? {

@@ -91,11 +91,11 @@ public class ChallengeResponseViewModel {
         )
         return selectedResponseSTDS
     }
-    func createOOBChallengeResponse()  {
+    func createOOBChallengeResponse() -> STDSChallengeResponse  {
         let issuerImage = self.issuerImage() // Assuming this function exists
         let paymentImage = self.paymentImage() // Assuming this function exists
 
-        selectedResponseSTDS = STDSChallengeResponse(
+       let selectedResponseSTDS = STDSChallengeResponse(
             threeDSServerTransactionID: "",
             acsCounterACStoSDK: "",
             acsTransactionID: "",
@@ -129,6 +129,7 @@ public class ChallengeResponseViewModel {
              whyInfoLabel: "Learn more about authentication",
             whyInfoText: "This is additional information about authentication. You are being provided extra information you wouldn't normally see, because you've tapped on the above label."
         )
+        return selectedResponseSTDS
     }
     func singleSelectChallengeResponse()  {
         let infoObject1 = STDSChallengeResponseSelectionInfo(name: "***-***-*321", value: "Mobile")
