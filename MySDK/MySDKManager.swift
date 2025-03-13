@@ -36,7 +36,7 @@ public class MySDKManager {
             print("challengeInfoHeader is nil")
         }
         print("nul")
-        let sheetView = UIHostingController(rootView: SheetViewHTML(response: viewModel.selectedResponseSTDS!, onClose: {
+        let sheetView = UIHostingController(rootView: SheetViewHTML(response: selectedResponseSTDS!, onClose: {
             viewController.dismiss(animated: true, completion: nil)
         }))
         sheetView.modalPresentationStyle = .pageSheet
