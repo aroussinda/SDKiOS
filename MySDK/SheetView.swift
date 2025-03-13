@@ -29,7 +29,7 @@ struct SheetView: View {
 }
 
 
-struct SheetViewHTML: View {
+struct SheetViewChallenge: View {
     private let textFieldCustomization = STDSTextFieldCustomization.defaultSettings()
     private let buttonCustomization = STDSButtonCustomization(backgroundColor: .systemBlue, cornerRadius: 8,titleStyle: .uppercase)
     private let textTitleCustomization = STDSLabelCustomization(headingTextColor: .white, headingFont:UIFont.systemFont(ofSize: 17))
@@ -50,6 +50,8 @@ struct SheetViewHTML: View {
             MultiSelectChallengeView( response: response )
         case .oob:
             oobChallengeView( response: response )
+        case .singleSelect:
+            SingleSelectChallengeView( response: response )
         default:
             // Handle any unexpected cases
             Text("Unhandled STDSACSUIType case")
