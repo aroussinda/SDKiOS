@@ -38,7 +38,6 @@ struct SheetViewChallenge: View {
     
     private let footerCustomization = STDSFooterCustomization.defaultSettings()
     private let imageLoader = STDSImageLoader()
-    private let navigationCustomization = STDSNavigationBarCustomization.defaultSettings()
     var response: STDSChallengeResponse
     var onClose: () -> Void
   
@@ -48,13 +47,7 @@ struct SheetViewChallenge: View {
             //case .html:
         case .multiSelect:
             MultiSelectChallengeView( response: response )
-                .navigationBarTitle(navigationCustomization.headerText,displayMode: .inline)
-                .navigationBarItems(trailing: Button(action: {
-                    // Your action here
-                }) {
-                    Text(navigationCustomization.buttonText) // Wrap the string in Text
-                })
-
+                
                
             //.navigationBarItems(trailing: Button(navigationCustomization.buttonText))
               

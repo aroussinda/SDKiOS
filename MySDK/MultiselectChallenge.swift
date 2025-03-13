@@ -13,12 +13,14 @@ struct MultiSelectChallengeView: View {
     @State private var selectedOptions: Set<String> = []
     @State private var showMore: Bool = false // State to control the visibility of extra content
     let response: STDSChallengeResponse
+    private let navigationCustomization = STDSNavigationBarCustomization.defaultSettings()
 
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
                     VStack(alignment: .leading) {
+                        
                         Text(response.challengeInfoHeader ?? "Security Challenge")
                             .bold()
                             .padding(.bottom, 5)
@@ -98,6 +100,17 @@ struct MultiSelectChallengeView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
+            .navigationTitle("My Title") // Set the title
+                        .navigationBarTitleDisplayMode(.inline) // Set the display mode for the title
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button(action: {
+                                    print("Button tapped")
+                                }) {
+                                    Text(navigationCustomization.buttonText) // Display the button text
+                                }
+                            }
+                        }
         }
     }
     func toggleSelection(_ value: String) {
