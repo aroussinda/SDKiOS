@@ -167,8 +167,8 @@ public class ChallengeResponseViewModel {
 
 
     func textChallengeResponseWithWhitelist(whitelist: Bool, resendCode: Bool){
-        let issuerImage = self.issuerImage()  // Assuming issuerImage is a method returning image
-        let paymentImage = self.paymentImage()  // Assuming paymentImage is a method returning image
+      //  let issuerImage = self.issuerImage()  // Assuming issuerImage is a method returning image
+       // let paymentImage = self.paymentImage()  // Assuming paymentImage is a method returning image
 
         selectedResponseSTDS =  STDSChallengeResponse(
             threeDSServerTransactionID: "",
@@ -185,13 +185,13 @@ public class ChallengeResponseViewModel {
             challengeSelectInfo:[],
             expandInfoLabel: "Expand Info Label",
             expandInfoText: "This field displays expandable information text provided by the ACS.",
-            issuerImage: issuerImage,
+            issuerImage: nil,
             messageExtensions: nil,
             messageType: nil,
             messageVersion: "",
             oobAppURL: nil,
             oobContinueLabel: nil,
-            paymentSystemImage: paymentImage,
+            paymentSystemImage: nil,
             resendInformationLabel: resendCode ? "Resend code" : nil,
 
             submitAuthenticationLabel: "Submit",

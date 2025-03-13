@@ -31,9 +31,9 @@ struct oobChallengeView: View {
                 VStack(alignment: .leading) {
                     
                  
-                    HStack (alignment: .center){
+                  //  HStack (alignment: .center){
                         
-                        VStack {
+                     /*   VStack {
                             Image("logoBank") // Remplacez "imageName" par le nom de votre image
                                 .resizable()
                                 .scaledToFit()
@@ -51,7 +51,7 @@ struct oobChallengeView: View {
                             .cornerRadius(10)
                         }   .background(Color.white) // Définir la couleur de fond blanche
                             .cornerRadius(10) // Pour ajouter un coin arrondi
-                            .shadow(radius: 5) // Pour ajouter une ombre autour de la boîte
+                            .shadow(radius: 5) */// Pour ajouter une ombre autour de la boîte
                             /*if response.issuerImage != nil {
                             IssuerImageView(ImageURL: response.issuerImage?.mediumDensityURL)
                         } else {
@@ -64,8 +64,8 @@ struct oobChallengeView: View {
                     }
                        */
     
-                    }
-                    .frame(maxWidth: .infinity, alignment: .center) // Centers the HStack content horizontally
+                   // }
+                   // .frame(maxWidth: .infinity, alignment: .center) // Centers the HStack content horizontally
                     
                     Text(response.challengeInfoHeader ?? "Security Challenge")
                         .bold()
