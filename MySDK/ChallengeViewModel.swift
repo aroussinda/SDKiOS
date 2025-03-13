@@ -10,28 +10,28 @@ import Foundation
 public class ChallengeResponseViewModel {
     public var selectedResponseSTDS: STDSChallengeResponse?
     
-    func loadHTMLChallenge() {
-        print("here")
-        if let htmlFilePath = Bundle.main.path(forResource: "acs_challenge", ofType: "html"),
-          
-           let htmlContent = try? String(contentsOfFile: htmlFilePath, encoding: .utf8) {
-            selectedResponseSTDS = STDSChallengeResponse(
+    func loadHTMLChallenge() -> STDSChallengeResponse? {
+           let fileManager = FileManager.default
+           let currentPath = FileManager.default.currentDirectoryPath
+           let filePath = "\(currentPath)/acs_challenge.html"
+        print("file existe")
+        if fileManager.fileExists(atPath: filePath),
+           let htmlContent = try? String(contentsOfFile: filePath, encoding: .utf8) {
+            
+            let response = STDSChallengeResponse(
                 threeDSServerTransactionID: "",
-                
                 acsCounterACStoSDK: "",
                 acsTransactionID: "",
                 acsHTML: htmlContent,
-
                 acsUIType: .html,
-                
                 challengeCompletionIndicator: false,
                 showChallengeInfoTextIndicator: false,
                 challengeInfoHeader: "testHeader",
                 challengeInfoLabel: "testInfoLabel",
                 challengeInfoText: "testInfoText",
-                challengeSelectInfo:[],
-                expandInfoLabel: nil ,
-                expandInfoText: nil ,
+                challengeSelectInfo: [],
+                expandInfoLabel: nil,
+                expandInfoText: nil,
                 issuerImage: nil,
                 messageExtensions: nil,
                 messageType: nil,
@@ -41,12 +41,17 @@ public class ChallengeResponseViewModel {
                 paymentSystemImage: nil,
                 resendInformationLabel: nil,
                 submitAuthenticationLabel: "submitAuthenticationLabel",
-                whitelistingInfoText:nil,
+                whitelistingInfoText: nil,
                 whyInfoLabel: "Learn more about authentication",
                 whyInfoText: "This is additional information about authentication."
             )
+            
+            return response
         }
+        
+        return nil
     }
+
     
     // MARK: - Create Challenge Response
    

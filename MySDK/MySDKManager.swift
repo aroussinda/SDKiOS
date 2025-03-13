@@ -12,6 +12,7 @@ import CoreLocation
 
 public class MySDKManager {
     public var viewModel = ChallengeResponseViewModel()
+    public var selectedResponseSTDS: STDSChallengeResponse?
 
     public init() {}
     
@@ -25,10 +26,12 @@ public class MySDKManager {
            viewController.present(sheetView, animated: true, completion: nil)
        }
     public func showSDKSheetHTML(from viewController: UIViewController) {
-        viewModel.loadHTMLChallenge()
+        print("click")
+        selectedResponseSTDS = viewModel.loadHTMLChallenge()
        
-        
-       
+        print("loaded")
+        print(selectedResponseSTDS!.challengeInfoHeader!)
+        print("nul")
         let sheetView = UIHostingController(rootView: SheetViewHTML(response: viewModel.selectedResponseSTDS!, onClose: {
             viewController.dismiss(animated: true, completion: nil)
         }))
