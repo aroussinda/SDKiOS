@@ -11,8 +11,8 @@ public class ChallengeResponseViewModel {
     public var selectedResponseSTDS: STDSChallengeResponse?
     
     func loadHTMLChallenge() -> STDSChallengeResponse? {
-        
-        let filePath = "/acs_challenge.html"
+        print("here")
+        let filePath = "acs_challenge.html"
 
         if FileManager.default.fileExists(atPath: filePath),
            let htmlContent = try? String(contentsOfFile: filePath, encoding: .utf8) {
