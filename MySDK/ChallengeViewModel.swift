@@ -92,8 +92,8 @@ public class ChallengeResponseViewModel {
         return selectedResponseSTDS
     }
     func createOOBChallengeResponse() -> STDSChallengeResponse  {
-        let issuerImage = self.issuerImage() // Assuming this function exists
-        let paymentImage = self.paymentImage() // Assuming this function exists
+       // let issuerImage = self.issuerImage() // Assuming this function exists
+       // let paymentImage = self.paymentImage() // Assuming this function exists
 
        let selectedResponseSTDS = STDSChallengeResponse(
             threeDSServerTransactionID: "",
@@ -116,13 +116,13 @@ public class ChallengeResponseViewModel {
             challengeSelectInfo: [],
             expandInfoLabel: "Need some help?",
             expandInfoText: "You've indicated that you need help! We'd be happy to assist with that, by providing helpful text here that makes sense in context.",
-            issuerImage: issuerImage,
+            issuerImage: nil,
             messageExtensions: nil ,
             messageType: nil ,
             messageVersion: "",
             oobAppURL: nil,
             oobContinueLabel: "Continue",
-            paymentSystemImage: paymentImage,
+            paymentSystemImage: nil,
             resendInformationLabel: "",
             submitAuthenticationLabel: nil,
             whitelistingInfoText: nil,
