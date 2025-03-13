@@ -10,17 +10,28 @@ import Foundation
 public class ChallengeResponseViewModel {
     public var selectedResponseSTDS: STDSChallengeResponse?
     
-    func loadHTMLChallenge() -> STDSChallengeResponse? {
+    func loadHTMLChallenge() {
         print("here")
+
         let filePath = "/Users/sindaarous/Desktop/SDK/SDKiOS/MySDK/acs_challenge.html"
+        print("Checking file at path: \(filePath)")
 
-        if FileManager.default.fileExists(atPath: filePath),
-           let htmlContent = try? String(contentsOfFile: filePath, encoding: .utf8) {
-            print("Loading HTML Challenge...")
-      
-            print("Loading HTML ")
+        let fileManager = FileManager.default
 
-            let response = STDSChallengeResponse(
+        // Check if the file exists
+        if fileManager.fileExists(atPath: filePath) {
+            print("✅ File exists at: \(filePath)")
+
+            do {
+                let htmlContent = try String(contentsOfFile: filePath, encoding: .utf8)
+                print("✅ Loading HTML Challenge...")
+            } catch {
+                print("❌ Error reading file: \(error.localizedDescription)")
+            }
+        } else {
+            print("❌ File does NOT exist at path: \(filePath)")
+        }
+            /*let response = STDSChallengeResponse(
                 threeDSServerTransactionID: "",
                 acsCounterACStoSDK: "",
                 acsTransactionID: "",
@@ -47,12 +58,12 @@ public class ChallengeResponseViewModel {
                 whyInfoLabel: "Learn more about authentication",
                 whyInfoText: "This is additional information about authentication."
             )
-            print("Challenge Info Header: \(response.challengeInfoHeader ?? "nil")")
+            print("Challenge Info Header: \(response.challengeInfoHeader ?? "nil")")*/
 
-            return response
-        }
+           // return response
         
-        return nil
+        
+       // return nil
     }
 
     
