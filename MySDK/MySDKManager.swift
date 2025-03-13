@@ -30,7 +30,11 @@ public class MySDKManager {
         selectedResponseSTDS = viewModel.loadHTMLChallenge()
        
         print("loaded")
-        print(selectedResponseSTDS!.challengeInfoHeader!)
+        if let header = selectedResponseSTDS?.challengeInfoHeader {
+            print(header)
+        } else {
+            print("challengeInfoHeader is nil")
+        }
         print("nul")
         let sheetView = UIHostingController(rootView: SheetViewHTML(response: viewModel.selectedResponseSTDS!, onClose: {
             viewController.dismiss(animated: true, completion: nil)

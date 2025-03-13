@@ -17,7 +17,8 @@ public class ChallengeResponseViewModel {
         print("file existe")
         if fileManager.fileExists(atPath: filePath),
            let htmlContent = try? String(contentsOfFile: filePath, encoding: .utf8) {
-            
+            print("Loading HTML Challenge...")
+
             let response = STDSChallengeResponse(
                 threeDSServerTransactionID: "",
                 acsCounterACStoSDK: "",
@@ -45,7 +46,8 @@ public class ChallengeResponseViewModel {
                 whyInfoLabel: "Learn more about authentication",
                 whyInfoText: "This is additional information about authentication."
             )
-            
+            print("Challenge Info Header: \(response.challengeInfoHeader ?? "nil")")
+
             return response
         }
         
