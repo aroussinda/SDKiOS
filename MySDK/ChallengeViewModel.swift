@@ -56,13 +56,13 @@ public class ChallengeResponseViewModel {
     
     // MARK: - Create Challenge Response
    
-    func createChallengeResponse() {
+    func createChallengeResponse() -> STDSChallengeResponse  {
         let option1 = STDSChallengeResponseSelectionInfo(name: "Chicago, Illinois", value: "Option1")
         let option2 = STDSChallengeResponseSelectionInfo(name: "Portland, Oregon", value: "Option2")
         let option3 = STDSChallengeResponseSelectionInfo(name: "Dallas, Texas", value: "Option3")
         let option4 = STDSChallengeResponseSelectionInfo(name: "St Louis, Missouri", value: "Option4")
 
-        selectedResponseSTDS = STDSChallengeResponse(
+        let  selectedResponseSTDS = STDSChallengeResponse(
             threeDSServerTransactionID: "",
             acsCounterACStoSDK: "",
             acsTransactionID: "",
@@ -89,6 +89,7 @@ public class ChallengeResponseViewModel {
             whyInfoLabel: "Learn more about authentication",
             whyInfoText: "This is additional information about authentication. You are being provided extra information you would't normally see , because you've tapped on the above label . "
         )
+        return selectedResponseSTDS
     }
     func createOOBChallengeResponse()  {
         let issuerImage = self.issuerImage() // Assuming this function exists

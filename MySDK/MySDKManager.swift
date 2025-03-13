@@ -27,7 +27,7 @@ public class MySDKManager {
        }
     public func showSDKSheetHTML(from viewController: UIViewController) {
         print("click")
-  viewModel.loadHTMLChallenge()
+        selectedResponseSTDS = viewModel.createChallengeResponse()
        
         print("loaded")
         if let header = selectedResponseSTDS?.challengeInfoHeader {
