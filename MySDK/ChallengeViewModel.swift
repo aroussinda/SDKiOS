@@ -14,10 +14,22 @@ public class ChallengeResponseViewModel {
            let fileManager = FileManager.default
            let currentPath = FileManager.default.currentDirectoryPath
            let filePath = "\(currentPath)/acs_challenge.html"
+        
+        let fileExists = fileManager.fileExists(atPath: filePath)
+        let isReadable = fileManager.isReadableFile(atPath: filePath)
+        print("File exists: \(fileExists), Readable: \(isReadable)")
         print("file existe")
-        if fileManager.fileExists(atPath: filePath),
-           let htmlContent = try? String(contentsOfFile: filePath, encoding: .utf8) {
+        print("File path: \(filePath)")
+        do {
+            let htmlContent = try String(contentsOfFile: filePath, encoding: .utf8)
             print("Loading HTML Challenge...")
+        } catch {
+            print("Error reading file: \(error.localizedDescription)")
+        }
+        if fileManager.fileExists(atPath: filePath),
+         
+           let htmlContent = try? String(contentsOfFile: filePath, encoding: .utf8) {
+            print("Loading HTML ")
 
             let response = STDSChallengeResponse(
                 threeDSServerTransactionID: "",
