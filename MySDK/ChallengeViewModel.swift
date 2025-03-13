@@ -168,11 +168,11 @@ public class ChallengeResponseViewModel {
     }
 
 
-    func textChallengeResponseWithWhitelist(whitelist: Bool, resendCode: Bool){
+    func textChallengeResponseWithWhitelist(whitelist: Bool, resendCode: Bool)  -> STDSChallengeResponse {
       //  let issuerImage = self.issuerImage()  // Assuming issuerImage is a method returning image
        // let paymentImage = self.paymentImage()  // Assuming paymentImage is a method returning image
 
-        selectedResponseSTDS =  STDSChallengeResponse(
+       let selectedResponseSTDS =  STDSChallengeResponse(
             threeDSServerTransactionID: "",
             acsCounterACStoSDK: "",
             acsTransactionID: "",
@@ -201,6 +201,7 @@ public class ChallengeResponseViewModel {
             whyInfoLabel: "Learn more about authentication",
             whyInfoText: "This is additional information about authentication. You are being provided extra information you wouldn't normally see, because you've tapped on the above label."
         )
+        return selectedResponseSTDS
     }
 
    

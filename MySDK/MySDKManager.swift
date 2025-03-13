@@ -53,7 +53,15 @@ public class MySDKManager {
         viewController.present(sheetView, animated: true, completion: nil)
        
        }
-    
+    public func showSDKSheetTextWR(from viewController: UIViewController) {
+        selectedResponseSTDS = viewModel.textChallengeResponseWithWhitelist(whitelist:true, resendCode: true)
+        let sheetView = UIHostingController(rootView: SheetViewChallenge(response: selectedResponseSTDS!, onClose: {
+            viewController.dismiss(animated: true, completion: nil)
+        }))
+        sheetView.modalPresentationStyle = .pageSheet
+        viewController.present(sheetView, animated: true, completion: nil)
+       
+       }
     public func fetchLocation() -> CLLocation? {
            return MySDKLocationManager.shared.getLocation()
        }

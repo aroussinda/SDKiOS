@@ -52,6 +52,8 @@ struct SheetViewChallenge: View {
             oobChallengeView( response: response )
         case .singleSelect:
             SingleSelectChallengeView( response: response )
+        case .text:
+            TextChallengeView( response: response )
         default:
             // Handle any unexpected cases
             Text("Unhandled STDSACSUIType case")
