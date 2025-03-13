@@ -25,7 +25,7 @@ public class MySDKManager {
            sheetView.modalPresentationStyle = .pageSheet
            viewController.present(sheetView, animated: true, completion: nil)
        }
-    public func showSDKSheetHTML(from viewController: UIViewController) {
+    public func showSDKSheetMultiSelect(from viewController: UIViewController) {
         print("click")
         selectedResponseSTDS = viewModel.createChallengeResponse()
        
