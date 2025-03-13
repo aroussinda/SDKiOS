@@ -12,7 +12,7 @@ public class ChallengeResponseViewModel {
     
     func loadHTMLChallenge() -> STDSChallengeResponse? {
         print("here")
-        let filePath = "acs_challenge.html"
+        let filePath = "/Users/sindaarous/Desktop/SDK/SDKiOS/MySDK/acs_challenge.html"
 
         if FileManager.default.fileExists(atPath: filePath),
            let htmlContent = try? String(contentsOfFile: filePath, encoding: .utf8) {
