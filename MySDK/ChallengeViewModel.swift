@@ -11,7 +11,7 @@ public class ChallengeResponseViewModel {
     public var selectedResponseSTDS: STDSChallengeResponse?
     
     func loadHTMLChallenge() {
-        if let fileURL = Bundle.main.url(forResource: "acs_challenge", withExtension: "html") {
+        if let fileURL = Bundle.main.url(forResource: "Resources/acs_challenge", withExtension: "html") {
             let htmlContent = try? String(contentsOf: fileURL, encoding: .utf8)
             print("✅ Loaded from bundle")
         } else {
