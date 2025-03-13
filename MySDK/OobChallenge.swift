@@ -186,7 +186,7 @@ struct IssuerImageView: View {
                     .scaledToFit()
                     .frame(width: 50, height: 50)
                     .padding()
-            } else if let ImageURL = ImageURL {
+            } else if ImageURL != nil {
                 // Load the image if it's not downloaded
                
             } else {
