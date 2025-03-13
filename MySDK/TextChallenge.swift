@@ -116,12 +116,7 @@ struct TextChallengeView: View {
                                 .frame(width: 250, height: 50)
                                 .cornerRadius(10)
                                 .shadow(radius: 5)
-                                .onChange(of: code ,perform: { newValue in
-                                    // Limit to 6 digits
-                                    if newValue.count > 6 {
-                                        code = String(newValue.prefix(6))
-                                    }
-                                })
+                                
                     
                                
                 
