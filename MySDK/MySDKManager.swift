@@ -24,14 +24,14 @@ public class MySDKManager {
            sheetView.modalPresentationStyle = .pageSheet
            viewController.present(sheetView, animated: true, completion: nil)
        }
-    public func showSDKSheetHTML(from viewController: UIViewController, challengeResponse: STDSChallengeResponse) {
+    public func showSDKSheetHTML(from viewController: UIViewController) {
         viewModel.loadHTMLChallenge()
-        
-        let sheetView = UIHostingController(rootView: SheetViewHTML(challengeResponse: viewModel.selectedResponseSTDS!, onClose: {
+        let sheetView = UIHostingController(rootView: SheetViewHTML( onClose: {
             viewController.dismiss(animated: true, completion: nil)
         }))
         sheetView.modalPresentationStyle = .pageSheet
         viewController.present(sheetView, animated: true, completion: nil)
+       
        }
     
     

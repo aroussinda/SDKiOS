@@ -30,12 +30,12 @@ struct SheetView: View {
 
 
 struct SheetViewHTML: View {
-    var challengeResponse: STDSChallengeResponse
+    
     var onClose: () -> Void
 
     var body: some View {
         VStack {
-            Text(challengeResponse.challengeInfoHeader!)  // Assuming `STDSChallengeResponse` has a `message` property
+            Text("test")  // Assuming `STDSChallengeResponse` has a `message` property
                 .foregroundColor(.red)
                 .font(.title)
                 .padding()
