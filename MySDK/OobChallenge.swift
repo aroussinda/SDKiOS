@@ -17,62 +17,64 @@ struct oobChallengeView: View {
     private let selectCustomization = STDSSelectionCustomization.defaultSettings()
     private let footerCustomization = STDSFooterCustomization.defaultSettings()
     private let imageLoader = STDSImageLoader()
+    private let navigationCustomization = STDSNavigationBarCustomization.defaultSettings()
+
     
-
-
+    
     @State private var selectedOptions: Set<String> = []
     @State private var showMore: Bool = false // State to control the visibility of extra content
     @State private var showMore1: Bool = false // State to control the visibility of extra content
     
     let response: STDSChallengeResponse
+    var onClose: () -> Void
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
                     
-                 
-                  //  HStack (alignment: .center){
-                        
-                     /*   VStack {
-                            Image("logoBank") // Remplacez "imageName" par le nom de votre image
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100, height: 100)
-                                .cornerRadius(10)
-                        }   .background(Color.white) // Définir la couleur de fond blanche
-                            .cornerRadius(10) // Pour ajouter un coin arrondi
-                            .shadow(radius: 5) // Pour ajouter une ombre autour de la boîte
-                        Spacer()
-                        VStack {
-                        Image("logo") // Remplacez "imageName" par le nom de votre image
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100, height: 100)
-                            .cornerRadius(10)
-                        }   .background(Color.white) // Définir la couleur de fond blanche
-                            .cornerRadius(10) // Pour ajouter un coin arrondi
-                            .shadow(radius: 5) */// Pour ajouter une ombre autour de la boîte
-                            /*if response.issuerImage != nil {
-                            IssuerImageView(ImageURL: response.issuerImage?.mediumDensityURL)
-                        } else {
-                            EmptyView()
-                        }
-                        if response.paymentSystemImage != nil {
-                        IssuerImageView(ImageURL: response.paymentSystemImage?.mediumDensityURL)
-                    } else {
-                        EmptyView()
-                    }
-                       */
-    
-                   // }
-                   // .frame(maxWidth: .infinity, alignment: .center) // Centers the HStack content horizontally
+                    
+                    //  HStack (alignment: .center){
+                    
+                    /*   VStack {
+                     Image("logoBank") // Remplacez "imageName" par le nom de votre image
+                     .resizable()
+                     .scaledToFit()
+                     .frame(width: 100, height: 100)
+                     .cornerRadius(10)
+                     }   .background(Color.white) // Définir la couleur de fond blanche
+                     .cornerRadius(10) // Pour ajouter un coin arrondi
+                     .shadow(radius: 5) // Pour ajouter une ombre autour de la boîte
+                     Spacer()
+                     VStack {
+                     Image("logo") // Remplacez "imageName" par le nom de votre image
+                     .resizable()
+                     .scaledToFit()
+                     .frame(width: 100, height: 100)
+                     .cornerRadius(10)
+                     }   .background(Color.white) // Définir la couleur de fond blanche
+                     .cornerRadius(10) // Pour ajouter un coin arrondi
+                     .shadow(radius: 5) */// Pour ajouter une ombre autour de la boîte
+                    /*if response.issuerImage != nil {
+                     IssuerImageView(ImageURL: response.issuerImage?.mediumDensityURL)
+                     } else {
+                     EmptyView()
+                     }
+                     if response.paymentSystemImage != nil {
+                     IssuerImageView(ImageURL: response.paymentSystemImage?.mediumDensityURL)
+                     } else {
+                     EmptyView()
+                     }
+                     */
+                    
+                    // }
+                    // .frame(maxWidth: .infinity, alignment: .center) // Centers the HStack content horizontally
                     
                     Text(response.challengeInfoHeader ?? "Security Challenge")
                         .bold()
                         .padding(.bottom, 5)
                         .font(Font(textTitleCustomization.headingFont))
                     
-           
+                    
                     
                     
                     HStack(alignment: .top){
@@ -91,17 +93,17 @@ struct oobChallengeView: View {
                     }) {
                         Text(buttonCustomization.formatTitle(response.submitAuthenticationLabel ?? "Next", style: buttonCustomization.titleStyle))
                             .font(.system(size: 16, weight: .bold))
-                             .padding()
+                            .padding()
                             .frame(maxWidth: .infinity)
                         
-                        .background(Color.blue)
-                        .foregroundColor(.white)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
                             .cornerRadius(buttonCustomization.cornerRadius)
                     }
                     .padding(.top, 20)
                     .padding(.bottom, 20)
                     .frame(width: .infinity, height: 50)
-
+                    
                     Divider().frame(height: 4) // Optional Divider
                     HStack (alignment: .top){
                         Image(systemName: showMore ? "chevron.up" : "chevron.down")
@@ -117,20 +119,20 @@ struct oobChallengeView: View {
                                 .multilineTextAlignment(.leading)
                                 .padding(.bottom, 5)
                                 .font(Font(textBodyCustomization.headingFont))
-                          
+                            
                         }
-                      
-                       
+                        
+                        
                     }
                     .padding(.all, 10)
-                              if showMore {
-                                  Text(response.whyInfoText ?? "")
-                                     
-                                      .multilineTextAlignment(.leading)
-                                      .padding(.bottom, 5)
-                                      .font(Font(textBodyCustomization.headingFont))
-                                 
-                              }
+                    if showMore {
+                        Text(response.whyInfoText ?? "")
+                        
+                            .multilineTextAlignment(.leading)
+                            .padding(.bottom, 5)
+                            .font(Font(textBodyCustomization.headingFont))
+                        
+                    }
                     HStack (alignment: .top) {
                         
                         Image(systemName: showMore1 ? "chevron.up" : "chevron.down")
@@ -143,35 +145,41 @@ struct oobChallengeView: View {
                         }) {
                             Text(response.expandInfoLabel ?? "")
                                 .foregroundColor( .white)
-
+                            
                                 .multilineTextAlignment(.leading)
                                 .padding(.bottom, 5)
                                 .font(Font(textBodyCustomization.headingFont))
-                          
-                           
-                                
+                            
+                            
+                            
                         }
-                      
-                       
+                        
+                        
                     }
                     .padding(.all, 10)
-                              if showMore1 {
-                                  Text(response.expandInfoText ?? "")
-                                      .multilineTextAlignment(.leading)
-                                      .padding(.bottom, 5)
-                                      .font(Font(textBodyCustomization.headingFont))
-                                
-                                  
-                              }
-                       
+                    if showMore1 {
+                        Text(response.expandInfoText ?? "")
+                            .multilineTextAlignment(.leading)
+                            .padding(.bottom, 5)
+                            .font(Font(textBodyCustomization.headingFont))
+                        
+                        
+                    }
+                    
                 }
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
                 .frame(maxWidth: .infinity, alignment: .leading) // Aligns VStack content to the left
-
+                
             }
         }
-    }}
+        .navigationBarTitle(navigationCustomization.headerText, displayMode: .inline) // ✅ Add Title
+            .navigationBarItems(trailing: Button(navigationCustomization.buttonText) { // ✅ Add Close Button
+                onClose()
+            }.foregroundColor(Color(navigationCustomization.textColorButton)))
+    }
+    
+}
 struct IssuerImageView: View {
     var ImageURL: URL? // URL to the issuer's image
     @State private var downloadedImage: UIImage? = nil // The downloaded image

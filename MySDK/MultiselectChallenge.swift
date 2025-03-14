@@ -10,10 +10,11 @@ struct MultiSelectChallengeView: View {
     private let selectCustomization = STDSSelectionCustomization.defaultSettings()
     private let footerCustomization = STDSFooterCustomization.defaultSettings()
     private let imageLoader = STDSImageLoader()
+    private let navigationCustomization = STDSNavigationBarCustomization.defaultSettings()
+
     @State private var selectedOptions: Set<String> = []
     @State private var showMore: Bool = false // State to control the visibility of extra content
     let response: STDSChallengeResponse
-    private let navigationCustomization = STDSNavigationBarCustomization.defaultSettings()
     var onClose: () -> Void
     var body: some View {
         NavigationView {
@@ -101,10 +102,10 @@ struct MultiSelectChallengeView: View {
                 }
                // .navigationTitle("My Title") // Set the title
                
-            } .navigationBarTitle("Challenge", displayMode: .inline) // ✅ Add Title
-                .navigationBarItems(trailing: Button("Close") { // ✅ Add Close Button
+            } .navigationBarTitle(navigationCustomization.headerText, displayMode: .inline) // ✅ Add Title
+                .navigationBarItems(trailing: Button(navigationCustomization.buttonText) { // ✅ Add Close Button
                     onClose()
-                })
+                }.foregroundColor(Color(navigationCustomization.textColorButton)))
             
         }
     }

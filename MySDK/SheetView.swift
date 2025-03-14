@@ -52,11 +52,11 @@ struct SheetViewChallenge: View {
             //.navigationBarItems(trailing: Button(navigationCustomization.buttonText))
               
         case .oob:
-            oobChallengeView( response: response )
+            oobChallengeView( response: response ,onClose: onClose)
         case .singleSelect:
-            SingleSelectChallengeView( response: response )
+            SingleSelectChallengeView( response: response ,onClose: onClose)
         case .text:
-            TextChallengeView( response: response )
+            TextChallengeView( response: response ,onClose: onClose)
         default:
             // Handle any unexpected cases
             Text("Unhandled STDSACSUIType case")

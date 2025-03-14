@@ -20,10 +20,11 @@ struct SingleSelectChallengeView: View {
     @State private var selectedOptions: Set<String> = []
     @State private var selectedOption: String? = nil  // No option selected initially
     @State private var showMore1: Bool = false // State to control the visibility of extra content
+    private let navigationCustomization = STDSNavigationBarCustomization.defaultSettings()
 
     @State private var showMore: Bool = false // State to control the visibility of extra content
     let response: STDSChallengeResponse
-
+    var onClose: () -> Void
     var body: some View {
         
         NavigationView{
@@ -36,10 +37,10 @@ struct SingleSelectChallengeView: View {
                     Text(response.challengeInfoText ?? "")
                         .bold()
                         .fixedSize(horizontal: false, vertical: true)  // Allow the text to wrap and grow vertically
-                  
-                      
+                    
+                    
                         .multilineTextAlignment(.leading) // Align to the right for multiline text
-
+                    
                         .padding(.bottom, 5)
                         .font(Font(textBodyCustomization.headingFont))
                     
@@ -53,7 +54,7 @@ struct SingleSelectChallengeView: View {
                                     .foregroundColor(.blue)
                                 Text(option.name)
                                     .foregroundColor(.white)
-
+                                
                             }
                             .padding()
                             
@@ -65,19 +66,19 @@ struct SingleSelectChallengeView: View {
                     }) {
                         Text(buttonCustomization.formatTitle(response.oobContinueLabel ?? "Next", style: buttonCustomization.titleStyle))
                             .font(.system(size: 16, weight: .bold))
-                             .padding()
+                            .padding()
                             .frame(maxWidth: .infinity)
                         
-                        .background(Color.blue)
-                        .foregroundColor(.white)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
                             .cornerRadius(buttonCustomization.cornerRadius)
                     }
                     .padding(.top, 20)
                     .padding(.bottom, 20)
                     .frame(width: .infinity, height: 50)
-
+                    
                     Divider().frame(height: 4) // Optional Divider
-                 
+                    
                     
                     HStack (alignment: .top){
                         Image(systemName: showMore ? "chevron.up" : "chevron.down")
@@ -93,7 +94,7 @@ struct SingleSelectChallengeView: View {
                                 .multilineTextAlignment(.leading)
                                 .padding(.bottom, 5)
                                 .font(Font(textBodyCustomization.headingFont))
-                           
+                            
                             
                         }
                         
@@ -109,7 +110,7 @@ struct SingleSelectChallengeView: View {
                                 .padding()
                                 .font(Font(textBodyCustomization.headingFont))
                             
-                         
+                            
                         }
                     }
                     HStack (alignment: .top) {
@@ -139,7 +140,7 @@ struct SingleSelectChallengeView: View {
                             .font(Font(textBodyCustomization.headingFont))
                         
                         
-                       
+                        
                     }
                     
                 }
@@ -148,6 +149,11 @@ struct SingleSelectChallengeView: View {
                 .padding(.trailing, 20)
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
-        }
+        }.navigationBarTitle(navigationCustomization.headerText, displayMode: .inline) // ✅ Add Title
+            .navigationBarItems(trailing: Button(navigationCustomization.buttonText) { // ✅ Add Close Button
+                onClose()
+            }.foregroundColor(Color(navigationCustomization.textColorButton)))
         
-    }}
+    }
+    
+}
