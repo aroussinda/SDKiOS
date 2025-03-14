@@ -46,7 +46,7 @@ struct SheetViewChallenge: View {
         switch response.acsUIType {
             //case .html:
         case .multiSelect:
-            MultiSelectChallengeView( response: response )
+            MultiSelectChallengeView( response: response ,onClose: onClose)
                 
                
             //.navigationBarItems(trailing: Button(navigationCustomization.buttonText))

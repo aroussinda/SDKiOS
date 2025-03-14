@@ -14,7 +14,7 @@ struct MultiSelectChallengeView: View {
     @State private var showMore: Bool = false // State to control the visibility of extra content
     let response: STDSChallengeResponse
     private let navigationCustomization = STDSNavigationBarCustomization.defaultSettings()
-
+    var onClose: () -> Void
     var body: some View {
         NavigationView {
             ScrollView {
@@ -103,7 +103,7 @@ struct MultiSelectChallengeView: View {
                
             } .navigationBarTitle("Challenge", displayMode: .inline) // ✅ Add Title
                 .navigationBarItems(trailing: Button("Close") { // ✅ Add Close Button
-            
+                    onClose()
                 })
             
         }
