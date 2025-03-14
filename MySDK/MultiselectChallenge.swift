@@ -99,7 +99,7 @@ struct MultiSelectChallengeView: View {
                     .background(Color(footerCustomization.backgroundColor))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .navigationTitle("My Title") // Set the title
+               // .navigationTitle("My Title") // Set the title
                
             }
             
