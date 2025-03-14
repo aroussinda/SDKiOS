@@ -37,40 +37,45 @@ struct oobChallengeView: View {
                     
                     VStack {
                         let bundle = Bundle(for: MySDKManager.self) // No optional binding needed
-                        Text("Bundle Path: \(bundle.bundlePath)")
+                        
 
                         if let image = UIImage(named: "logoMSS", in: bundle, with: nil) {
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100, height: 100)
-                                .cornerRadius(10)
-                        } else {
-                            Text("Image not found")
-                        }
+                            Image(uiImage: image) // Remplacez "imageName" par le nom de votre image
+                             .resizable()
+                             .scaledToFit()
+                             .frame(width: 100, height: 100)
+                             .cornerRadius(10)
+                             }
+                            
+                            
+                           
+                        }.background(Color.white) // Définir la couleur de fond blanche
+                        .cornerRadius(10) // Pour ajouter un coin arrondi
+                        .shadow(radius: 5)
 
-                       /* if let bundle = Bundle(identifier: "com.exemple.MySDK.MySDK"),
-                           let image = UIImage(named: "logoMSS", in: bundle, with: nil) {
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 100, height: 100)
-                                .cornerRadius(10)
-                        } else {
-                            Text("Image not found")
-                        }*/
+                
                         Spacer()
-                    }
-                     //VStack {
-                    /* Image("logo") // Remplacez "imageName" par le nom de votre image
-                     .resizable()
-                     .scaledToFit()
-                     .frame(width: 100, height: 100)
-                     .cornerRadius(10)
-                     }   .background(Color.white) // Définir la couleur de fond blanche
-                     .cornerRadius(10) // Pour ajouter un coin arrondi
-                     .shadow(radius: 5)*/ // Pour ajouter une ombre autour de la boîte
-                    /*if response.issuerImage != nil {
+                    
+                    VStack {
+                        let bundle = Bundle(for: MySDKManager.self) // No optional binding needed
+                        
+
+                        if let image = UIImage(named: "Logo", in: bundle, with: nil) {
+                            Image(uiImage: image) // Remplacez "imageName" par le nom de votre image
+                             .resizable()
+                             .scaledToFit()
+                             .frame(width: 100, height: 100)
+                             .cornerRadius(10)
+                             }
+                            
+                            
+                           
+                        }.background(Color.white) // Définir la couleur de fond blanche
+                        .cornerRadius(10) // Pour ajouter un coin arrondi
+                        .shadow(radius: 5)
+                    
+                    
+                /*if response.issuerImage != nil {
                      IssuerImageView(ImageURL: response.issuerImage?.mediumDensityURL)
                      } else {
                      EmptyView()
