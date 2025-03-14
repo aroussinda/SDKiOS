@@ -35,25 +35,28 @@ struct oobChallengeView: View {
                     
                     //  HStack (alignment: .center){
                     
-                    /*   VStack {
-                     Image("logoBank") // Remplacez "imageName" par le nom de votre image
+                    VStack {
+                        if let bundle = Bundle(identifier: "com.exemple.MySDK.MySDK"),
+                           let image = UIImage(named: "logoMSS", in: bundle, with: nil) {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .cornerRadius(10)
+                        } else {
+                            Text("Image not found")
+                        }
+                        Spacer()
+                    }
+                     //VStack {
+                    /* Image("logo") // Remplacez "imageName" par le nom de votre image
                      .resizable()
                      .scaledToFit()
                      .frame(width: 100, height: 100)
                      .cornerRadius(10)
                      }   .background(Color.white) // Définir la couleur de fond blanche
                      .cornerRadius(10) // Pour ajouter un coin arrondi
-                     .shadow(radius: 5) // Pour ajouter une ombre autour de la boîte
-                     Spacer()
-                     VStack {
-                     Image("logo") // Remplacez "imageName" par le nom de votre image
-                     .resizable()
-                     .scaledToFit()
-                     .frame(width: 100, height: 100)
-                     .cornerRadius(10)
-                     }   .background(Color.white) // Définir la couleur de fond blanche
-                     .cornerRadius(10) // Pour ajouter un coin arrondi
-                     .shadow(radius: 5) */// Pour ajouter une ombre autour de la boîte
+                     .shadow(radius: 5)*/ // Pour ajouter une ombre autour de la boîte
                     /*if response.issuerImage != nil {
                      IssuerImageView(ImageURL: response.issuerImage?.mediumDensityURL)
                      } else {
