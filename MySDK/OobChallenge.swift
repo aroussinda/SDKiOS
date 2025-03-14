@@ -36,7 +36,12 @@ struct oobChallengeView: View {
                     //  HStack (alignment: .center){
                     
                     VStack {
-                        if let bundle = Bundle(identifier: "com.exemple.MySDK.MySDK"),
+                        if let bundle = Bundle(identifier: "com.exemple.MySDK.MySDK") {
+                            Text("Bundle Path: \(bundle.bundlePath)")
+                        } else {
+                            Text("SDK Bundle Not Found")
+                        }
+                       /* if let bundle = Bundle(identifier: "com.exemple.MySDK.MySDK"),
                            let image = UIImage(named: "logoMSS", in: bundle, with: nil) {
                             Image(uiImage: image)
                                 .resizable()
@@ -45,7 +50,7 @@ struct oobChallengeView: View {
                                 .cornerRadius(10)
                         } else {
                             Text("Image not found")
-                        }
+                        }*/
                         Spacer()
                     }
                      //VStack {
