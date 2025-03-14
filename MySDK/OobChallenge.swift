@@ -36,11 +36,19 @@ struct oobChallengeView: View {
                     //  HStack (alignment: .center){
                     
                     VStack {
-                        if let bundle = Bundle(identifier: "com.exemple.MySDK.MySDK") {
-                            Text("Bundle Path: \(bundle.bundlePath)")
+                        let bundle = Bundle(for: MySDKManager.self) // No optional binding needed
+                        Text("Bundle Path: \(bundle.bundlePath)")
+
+                        if let image = UIImage(named: "logoMSS", in: bundle, with: nil) {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .cornerRadius(10)
                         } else {
-                            Text("SDK Bundle Not Found")
+                            Text("Image not found")
                         }
+
                        /* if let bundle = Bundle(identifier: "com.exemple.MySDK.MySDK"),
                            let image = UIImage(named: "logoMSS", in: bundle, with: nil) {
                             Image(uiImage: image)
