@@ -26,11 +26,7 @@ struct ChallengeResponseView: View {
         switch response.acsUIType {
         case .html:
             if let html = response.acsHTML {
-                NavigationView {  // Important !
-                    WebView(htmlContent: html ,buttonColor: "#FF5733",logoImageName: "logo")
-                        .edgesIgnoringSafeArea(.bottom)
-                       
-                      }
+                
             }
        // case .multiSelect:
             /*MultiSelectChallengeView(selectCustomization: selectCustomization, textBodyCustomization: textBodyCustomization, response: response, textTitleCustomization: textTitleCustomization, buttonCustomization: buttonCustomization, footerCustomization: footerCustomization)*/
@@ -55,7 +51,7 @@ struct ChallengeResponseView: View {
 
 
 // MARK: - WebView for HTML Challenges
-struct WebView: UIViewRepresentable {
+/*struct WebView: UIViewRepresentable {
     let htmlContent: String
     let buttonColor: String  // Hex color as a string (e.g., "#FF5733")
     let logoImageName: String // Nom du fichier image local
@@ -91,4 +87,4 @@ struct WebView: UIViewRepresentable {
     }*/
 
 
-}
+}*/

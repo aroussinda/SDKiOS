@@ -24,6 +24,17 @@ public class MySDKManager {
            sheetView.modalPresentationStyle = .pageSheet
            viewController.present(sheetView, animated: true, completion: nil)
        }
+    public func showSDKSheetHTML(from viewController: UIViewController) {
+        let fileName = "acs_challenge"
+        let fileType = "html"
+        selectedResponseSTDS = viewModel.createChallengeResponse()
+        let sheetView = UIHostingController(rootView: SheetViewHTML( fileName: fileName, fileType: fileType, onClose: {
+            viewController.dismiss(animated: true, completion: nil)
+        }))
+        sheetView.modalPresentationStyle = .pageSheet
+        viewController.present(sheetView, animated: true, completion: nil)
+       
+       }
     public func showSDKSheetMultiSelect(from viewController: UIViewController) {
 
         selectedResponseSTDS = viewModel.createChallengeResponse()
