@@ -48,10 +48,7 @@ struct SheetViewChallenge: View {
             //case .html:
         case .multiSelect:
             MultiSelectChallengeView( response: response ,onClose: onClose)
-                .navigationBarTitle(navigationCustomization.headerText, displayMode: .inline) // ✅ Add Title
-                    .navigationBarItems(trailing: Button(navigationCustomization.buttonText) { // ✅ Add Close Button
-                        onClose()
-                    }.foregroundColor(Color(navigationCustomization.textColorButton)))
+               
                
             //.navigationBarItems(trailing: Button(navigationCustomization.buttonText))
               

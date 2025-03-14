@@ -104,7 +104,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.resource  = "icon.png"
-  # spec.resources = "MySDK/Resources/acs_challenge.html"
+  spec.resources = "MySDK/Resources/*"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
