@@ -173,10 +173,7 @@ struct oobChallengeView: View {
                 
             }
         }
-        .navigationBarTitle(navigationCustomization.headerText, displayMode: .inline) // ✅ Add Title
-            .navigationBarItems(trailing: Button(navigationCustomization.buttonText) { // ✅ Add Close Button
-                onClose()
-            }.foregroundColor(Color(navigationCustomization.textColorButton)))
+        
     }
     
 }

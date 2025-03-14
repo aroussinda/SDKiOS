@@ -149,10 +149,7 @@ struct SingleSelectChallengeView: View {
                 .padding(.trailing, 20)
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
-        }.navigationBarTitle(navigationCustomization.headerText, displayMode: .inline) // ✅ Add Title
-            .navigationBarItems(trailing: Button(navigationCustomization.buttonText) { // ✅ Add Close Button
-                onClose()
-            }.foregroundColor(Color(navigationCustomization.textColorButton)))
+        }
         
     }
     
