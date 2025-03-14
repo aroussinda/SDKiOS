@@ -101,7 +101,10 @@ struct MultiSelectChallengeView: View {
                 }
                // .navigationTitle("My Title") // Set the title
                
-            }
+            } .navigationBarTitle("Challenge", displayMode: .inline) // ✅ Add Title
+                .navigationBarItems(trailing: Button("Close") { // ✅ Add Close Button
+            
+                })
             
         }
     }

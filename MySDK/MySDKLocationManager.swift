@@ -38,7 +38,7 @@ public class MySDKLocationManager: NSObject, CLLocationManagerDelegate {
     }
     // Handle authorization status updates
     public func checkLocationPermission() {
-           let status = CLLocationManager.authorizationStatus()
+        let status = CLLocationManager.authorizationStatus()
            
            if status == .notDetermined {
                // Demande l'autorisation à l'utilisateur
