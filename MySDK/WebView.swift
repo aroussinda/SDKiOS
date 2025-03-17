@@ -15,7 +15,7 @@ struct WebView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
-        
+        print("here")
         if let base64String = convertImageToBase64(named: "logo")  {
             print(base64String)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
