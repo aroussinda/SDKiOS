@@ -15,26 +15,28 @@ struct WebView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
-        let base64String = convertImageToBase64(named: "logo")
-        print(base64String ?? "null")
+        let bundle = Bundle(for: MySDKManager.self) // No optional binding needed
+        //com.example.myAppdssdk
+        if let sdkBundle = Bundle(identifier: "com.exemple.MySDK") { // Replace with your SDK's bundle ID
+            let base64String = convertImageToBase64(named: "logoMSS", in: sdkBundle)
+            print("Base64 String: \(base64String ?? "Failed to load image")")
+        }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 let jsCode = """
                                document.querySelector('.button.primary').style.backgroundColor = '\(buttonColor)';
-                               document.querySelector('.logo-ul').style.backgroundImage = 'url(data:image/png;base64,\(base64String!))';
-                               """
+                             """
                 webView.evaluateJavaScript(jsCode, completionHandler: nil)
             
         }
         return webView
     }
 
-    func convertImageToBase64(named imageName: String) -> String? {
-        print("here")
-        if let imagePath = Bundle.main.path(forResource: imageName, ofType: "png"), // Adjust type if needed
-              let image = UIImage(contentsOfFile: imagePath),
-              let imageData = image.pngData() {
-               return imageData.base64EncodedString()
-           }
+    func convertImageToBase64(named imageName: String, in bundle: Bundle) -> String? {
+        if let imagePath = bundle.path(forResource: imageName, ofType: "png"), // Adjust file type
+           let image = UIImage(contentsOfFile: imagePath),
+           let imageData = image.pngData() {
+            return imageData.base64EncodedString()
+        }
         return nil
     }
 
