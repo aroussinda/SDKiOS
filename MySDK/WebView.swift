@@ -15,21 +15,21 @@ struct WebView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
-        print("here")
-        if let base64String = convertImageToBase64(named: "logo")  {
-            print(base64String)
+        let base64String = convertImageToBase64(named: "logo")
+        print(base64String ?? "null")
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 let jsCode = """
                                document.querySelector('.button.primary').style.backgroundColor = '\(buttonColor)';
-                               document.querySelector('.logo-ul').style.backgroundImage = 'url(data:image/png;base64,\(base64String))';
+                               document.querySelector('.logo-ul').style.backgroundImage = 'url(data:image/png;base64,\(base64String!))';
                                """
                 webView.evaluateJavaScript(jsCode, completionHandler: nil)
-            }
+            
         }
         return webView
     }
 
     func convertImageToBase64(named imageName: String) -> String? {
+        print("here")
         if let image = UIImage(named: imageName), // Load image from assets
            let imageData = image.pngData() {
             return imageData.base64EncodedString()
