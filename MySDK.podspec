@@ -41,7 +41,7 @@ Pod::Spec.new do |spec|
   spec.license = { :type => 'MIT', :file => 'LICENSE' }
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
-  spec.vendored_frameworks = "MySDK.xcframework"
+  #spec.vendored_frameworks = "MySDK.xcframework"
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -92,7 +92,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files = "MySDK/**/*.{h,m,swift,html}"
+  #spec.source_files = "MySDK/**/*.{h,m,swift,html}"
 
   # spec.public_header_files = "Classes/**/*.h"
 
