@@ -102,7 +102,19 @@ struct MultiSelectChallengeView: View {
                 }
                // .navigationTitle("My Title") // Set the title
                
-            } 
+            }
+            .navigationTitle("My Title") // Set the title
+                    .navigationBarTitleDisplayMode(.inline) // Keeps title compact
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button(action: {
+                             
+                            }) {
+                                Image(systemName: "xmark") // Close button
+                                    .foregroundColor(.black)
+                            }
+                        }
+                    }
             
         }
     }
