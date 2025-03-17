@@ -16,8 +16,8 @@ struct WebView: UIViewRepresentable {
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
         let bundle = Bundle(for: MySDKManager.self) // No optional binding needed
-        //com.example.myAppdssdk
-        if let sdkBundle = Bundle(identifier: "com.exemple.MySDK") { // Replace with your SDK's bundle ID
+        //
+        if let sdkBundle = Bundle(identifier: "com.example.myAppdssdk") { // Replace with your SDK's bundle ID
             let base64String = convertImageToBase64(named: "logoMSS", in: sdkBundle)
             print("Base64 String: \(base64String ?? "Failed to load image")")
         }
