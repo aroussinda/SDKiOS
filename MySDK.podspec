@@ -105,6 +105,9 @@ Pod::Spec.new do |spec|
 
   # spec.resource  = "icon.png"
   spec.resources = "MySDK/Resources/*"
+   spec.resource_bundles = {
+  'MySDKResources' => ['MySDK/Resources/*']
+  }
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
