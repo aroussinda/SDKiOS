@@ -24,7 +24,7 @@ public class MySDKManager {
            sheetView.modalPresentationStyle = .pageSheet
            viewController.present(sheetView, animated: true, completion: nil)
        }
-    @objc public func showSDKSheetHTML(from viewController: UIViewController) {
+     public func showSDKSheetHTML(from viewController: UIViewController) {
         let bundle = Bundle(for: MySDKManager.self) // No optional binding needed
 
         if
