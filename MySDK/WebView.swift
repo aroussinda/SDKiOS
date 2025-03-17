@@ -30,10 +30,11 @@ struct WebView: UIViewRepresentable {
 
     func convertImageToBase64(named imageName: String) -> String? {
         print("here")
-        if let image = UIImage(named: imageName), // Load image from assets
-           let imageData = image.pngData() {
-            return imageData.base64EncodedString()
-        }
+        if let imagePath = Bundle.main.path(forResource: imageName, ofType: "png"), // Adjust type if needed
+              let image = UIImage(contentsOfFile: imagePath),
+              let imageData = image.pngData() {
+               return imageData.base64EncodedString()
+           }
         return nil
     }
 
