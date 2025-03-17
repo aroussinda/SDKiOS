@@ -25,7 +25,15 @@ public class MySDKManager {
            viewController.present(sheetView, animated: true, completion: nil)
        }
     public func showSDKSheetHTML(from viewController: UIViewController) {
-   
+        let bundle = Bundle(for: MySDKManager.self) // No optional binding needed
+
+        if
+            
+           let url = bundle.url(forResource: "acs_challenge", withExtension: "html") {
+            print("✅ HTML File Found at: \(url)")
+        } else {
+            print("❌ HTML File Not Found")
+        }
  
         if let url = Bundle.main.url(forResource: "acs_challenge", withExtension: "html") {
             print("✅ Found HTML file: \(url)")
