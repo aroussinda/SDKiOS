@@ -17,7 +17,7 @@ struct WebView: UIViewRepresentable {
         let webView = WKWebView()
         
         if let base64String = convertImageToBase64(named: "logo")  {
-            
+            print(base64String)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 let jsCode = """
                                document.querySelector('.button.primary').style.backgroundColor = '\(buttonColor)';

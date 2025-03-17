@@ -24,7 +24,7 @@ public class MySDKManager {
            sheetView.modalPresentationStyle = .pageSheet
            viewController.present(sheetView, animated: true, completion: nil)
        }
-    public func showSDKSheetHTML(from viewController: UIViewController) {
+    internal func showSDKSheetHTML(from viewController: UIViewController) {
         let bundle = Bundle(for: MySDKManager.self) // No optional binding needed
 
         if
@@ -42,6 +42,7 @@ public class MySDKManager {
         } else {
             print("❌ HTML File Not Found")
         }
+
        }
     public func showSDKSheetMultiSelect(from viewController: UIViewController) {
 
