@@ -15,7 +15,7 @@ struct SheetViewHTML: View {
     
     var body: some View {
         VStack {
-            WebView(buttonColor: "#FF5733",logoImageName: "logo")
+            WebView(buttonColor: "#FF5733",logoImageName: "Logo")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .cornerRadius(10)
                 .padding()
