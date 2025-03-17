@@ -16,11 +16,9 @@ struct WebView: UIViewRepresentable {
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
         let bundle = Bundle(for: MySDKManager.self) // No optional binding needed
-        //
-        if let sdkBundle = Bundle(identifier: "com.example.myAppdssdk") { // Replace with your SDK's bundle ID
-            let base64String = convertImageToBase64(named: "logoMSS", in: sdkBundle)
-            print("Base64 String: \(base64String ?? "Failed to load image")")
-        }
+        let image = UIImage(named: "logoMSS", in: bundle, with: nil)
+        let base64String = image?.pngData()?.base64EncodedString() ?? image?.jpegData(compressionQuality: 1.0)?.base64EncodedString()
+        print(base64String ?? "Failed image converter")
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 let jsCode = """
                                document.querySelector('.button.primary').style.backgroundColor = '\(buttonColor)';
