@@ -100,21 +100,21 @@ struct MultiSelectChallengeView: View {
                     .background(Color(footerCustomization.backgroundColor))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-               // .navigationTitle("My Title") // Set the title
-               
-            }
-            .navigationTitle("My Title") // Set the title
-                    .navigationBarTitleDisplayMode(.inline) // Keeps title compact
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button(action: {
-                             
-                            }) {
-                                Image(systemName: "xmark") // Close button
-                                    .foregroundColor(.black)
+                .navigationTitle("My Title") // Set the title
+                        .navigationBarTitleDisplayMode(.inline) // Keeps title compact
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button(action: {
+                                 
+                                }) {
+                                    Image(systemName: "xmark") // Close button
+                                        .foregroundColor(.black)
+                                }
                             }
                         }
-                    }
+               
+            }
+           
             
         }
     }
