@@ -19,11 +19,14 @@ struct WebView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        if let htmlFilePath = Bundle.main.path(forResource: fileName, ofType: fileType) {
-            let url = URL(fileURLWithPath: htmlFilePath)
+        let bundle = Bundle(for: MySDKManager.self) // No optional binding needed
+
+        if let url = bundle.url(forResource: "acs_challenge", withExtension: "html") {
+            print("✅ HTML File Found at: \(url)")
             uiView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
         } else {
-            print("HTML file not found!")
+            print("❌ HTML File Not Found!")
         }
+
     }
 }
