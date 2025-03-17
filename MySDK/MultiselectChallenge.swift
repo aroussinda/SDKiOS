@@ -100,6 +100,7 @@ struct MultiSelectChallengeView: View {
                     .background(Color(footerCustomization.backgroundColor))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
+                
                
                
             }
