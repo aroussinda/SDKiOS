@@ -10,6 +10,9 @@
 import PackageDescription
 let package = Package(
     name: "MySDK",
+    resources: [
+        .process("Resources")
+    ]
     platforms: [
         .iOS(.v13)
     ],

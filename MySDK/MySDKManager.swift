@@ -27,7 +27,12 @@ public class MySDKManager {
     public func showSDKSheetHTML(from viewController: UIViewController) {
    
  
-        
+        if let url = Bundle.main.url(forResource: "acs_challenge", withExtension: "html") {
+            print("✅ Found HTML file: \(url)")
+        } else {
+            print("❌ HTML file not found")
+        }
+
         if let bundleURL = Bundle.main.url(forResource: "MySDKResources", withExtension: "bundle"),
            let sdkBundle = Bundle(url: bundleURL),
            let url = sdkBundle.url(forResource: "acs_challenge", withExtension: "html") {
