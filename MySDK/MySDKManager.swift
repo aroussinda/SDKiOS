@@ -25,6 +25,13 @@ public class MySDKManager {
            viewController.present(sheetView, animated: true, completion: nil)
        }
     public func showSDKSheetHTML(from viewController: UIViewController) {
+        if let bundle = Bundle(identifier: "com.exemple.MySDK"),
+           let url = bundle.url(forResource: "acs_challenge", withExtension: "html") {
+            print("✅ HTML File Found: \(url)")
+        } else {
+            print("❌ HTML File Not Found in SDK Bundle")
+        }
+
         let fileName = "acs_challenge"
         let fileType = "html"
         selectedResponseSTDS = viewModel.createChallengeResponse()
