@@ -17,14 +17,17 @@ struct WebView: UIViewRepresentable {
         let webView = WKWebView()
         let bundle = Bundle(for: MySDKManager.self) // No optional binding needed
         let image = UIImage(named: "logoMSS", in: bundle, with: nil)
+        let image2 = UIImage(named: "Logo", in: bundle, with: nil)
         let base64String = image?.pngData()?.base64EncodedString() ?? image?.jpegData(compressionQuality: 1.0)?.base64EncodedString()
-        print(base64String ?? "Failed image converter")
+        let base64String2 = image2?.pngData()?.base64EncodedString() ?? image2?.jpegData(compressionQuality: 1.0)?.base64EncodedString()
+       
         
         
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 let jsCode = """
                                document.querySelector('.button.primary').style.backgroundColor = '\(buttonColor)';
                                document.querySelector('.logo-ul').style.backgroundImage = 'url(data:image/png;base64,\(base64String ?? "Failed image converter"))';
+                               document.querySelector('.logo-bank').style.backgroundImage = 'url(data:image/png;base64,\(base64String2 ?? "Failed image converter"))';
                              """
                 webView.evaluateJavaScript(jsCode, completionHandler: nil)
             
