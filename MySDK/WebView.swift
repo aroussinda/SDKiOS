@@ -19,14 +19,18 @@ struct WebView: UIViewRepresentable {
         let image = UIImage(named: "logoMSS", in: bundle, with: nil)
         let base64String = image?.pngData()?.base64EncodedString() ?? image?.jpegData(compressionQuality: 1.0)?.base64EncodedString()
         print(base64String ?? "Failed image converter")
+        
+        
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 let jsCode = """
                                document.querySelector('.button.primary').style.backgroundColor = '\(buttonColor)';
+                               document.querySelector('.logo-ul').style.backgroundImage = 'url(data:image/png;base64,\(base64String ?? "Failed image converter"))';
                              """
                 webView.evaluateJavaScript(jsCode, completionHandler: nil)
             
         }
         return webView
+        
     }
 
     func convertImageToBase64(named imageName: String, in bundle: Bundle) -> String? {
