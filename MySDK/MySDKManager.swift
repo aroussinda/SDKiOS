@@ -25,22 +25,31 @@ public class MySDKManager {
            viewController.present(sheetView, animated: true, completion: nil)
        }
     public func showSDKSheetHTML(from viewController: UIViewController) {
-        if let bundle = Bundle(identifier: "com.exemple.MySDK"),
-           let url = bundle.url(forResource: "acs_challenge", withExtension: "html") {
+   
+ 
+        
+        if let bundleURL = Bundle.main.url(forResource: "MySDKResources", withExtension: "bundle"),
+           let sdkBundle = Bundle(url: bundleURL),
+           let url = sdkBundle.url(forResource: "acs_challenge", withExtension: "html") {
             print("✅ HTML File Found: \(url)")
-        } else {
-            print("❌ HTML File Not Found in SDK Bundle")
-        }
 
-        let fileName = "acs_challenge"
-        let fileType = "html"
-        selectedResponseSTDS = viewModel.createChallengeResponse()
-        let sheetView = UIHostingController(rootView: SheetViewHTML( fileName: fileName, fileType: fileType, onClose: {
-            viewController.dismiss(animated: true, completion: nil)
-        }))
-        sheetView.modalPresentationStyle = .pageSheet
-        viewController.present(sheetView, animated: true, completion: nil)
-       
+            let fileName = "acs_challenge"
+            let fileType = "html"
+            selectedResponseSTDS = viewModel.createChallengeResponse()
+            let sheetView = UIHostingController(rootView: SheetViewHTML( fileName: fileName, fileType: fileType, onClose: {
+                viewController.dismiss(animated: true, completion: nil)
+            }))
+            sheetView.modalPresentationStyle = .pageSheet
+            viewController.present(sheetView, animated: true, completion: nil)
+        }else {
+            print("❌ HTML File Not Found in SDK Bundle")
+
+        }
+        
+        
+        
+        
+   
        }
     public func showSDKSheetMultiSelect(from viewController: UIViewController) {
 
