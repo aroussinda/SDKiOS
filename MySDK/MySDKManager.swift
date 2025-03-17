@@ -31,21 +31,6 @@ public class MySDKManager {
             
            let url = bundle.url(forResource: "acs_challenge", withExtension: "html") {
             print("✅ HTML File Found at: \(url)")
-        } else {
-            print("❌ HTML File Not Found")
-        }
- 
-        if let url = Bundle.main.url(forResource: "acs_challenge", withExtension: "html") {
-            print("✅ Found HTML file: \(url)")
-        } else {
-            print("❌ HTML file not found")
-        }
-
-        if let bundleURL = Bundle.main.url(forResource: "MySDKResources", withExtension: "bundle"),
-           let sdkBundle = Bundle(url: bundleURL),
-           let url = sdkBundle.url(forResource: "acs_challenge", withExtension: "html") {
-            print("✅ HTML File Found: \(url)")
-
             let fileName = "acs_challenge"
             let fileType = "html"
             selectedResponseSTDS = viewModel.createChallengeResponse()
@@ -54,15 +39,9 @@ public class MySDKManager {
             }))
             sheetView.modalPresentationStyle = .pageSheet
             viewController.present(sheetView, animated: true, completion: nil)
-        }else {
-            print("❌ HTML File Not Found in SDK Bundle")
-
+        } else {
+            print("❌ HTML File Not Found")
         }
-        
-        
-        
-        
-   
        }
     public func showSDKSheetMultiSelect(from viewController: UIViewController) {
 
