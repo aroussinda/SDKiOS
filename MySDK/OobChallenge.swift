@@ -48,7 +48,7 @@ struct oobChallengeView: View {
                            .padding()
 
                        Spacer()
-                   }
+                   
             ScrollView {
                 
                 VStack(alignment: .leading) {
@@ -215,7 +215,7 @@ struct oobChallengeView: View {
                 
             }
         }
-        
+        }
     }
     
 }
