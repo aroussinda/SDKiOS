@@ -33,10 +33,8 @@ struct oobChallengeView: View {
             VStack {
                 HStack{
        
-                           Text("OOB Challenge")
-                               .padding()
-                               
-                    Spacer()
+                        
+                    
                            Button(action: {
                                onClose()
                            }) {
@@ -46,7 +44,7 @@ struct oobChallengeView: View {
                            }
                            
                
-                       } .frame(maxWidth: .infinity, alignment: .center)
+                       } .frame(width: .infinity, alignment: .trailing)
 
                     
 

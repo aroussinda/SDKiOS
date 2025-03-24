@@ -20,10 +20,7 @@ struct MultiSelectChallengeView: View {
         NavigationView {
             VStack {
                 HStack{
-                    Spacer()
-                    Text("Multi Select Challenge")
-                        .frame(maxWidth: .infinity, alignment: .center)
-                    Spacer()
+                    
                     Button(action: {
                         onClose()
                     }) {
@@ -33,7 +30,7 @@ struct MultiSelectChallengeView: View {
                     }
                     
                     
-                }                            .padding()
+                }    .frame(width: .infinity, alignment: .trailing)
 
                 
                 

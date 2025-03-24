@@ -17,8 +17,6 @@ struct SheetViewHTML: View {
         VStack {
             HStack{
                 Spacer()
-                       Text("HTML Challenge")
-                           .padding()
                     
                        Button(action: {
                            onClose()

@@ -33,8 +33,7 @@ struct TextChallengeView: View {
             VStack {
                 HStack{
                    
-                    Text("Text Challenge")
-                        .padding()
+                    
                     
                     Button(action: {
                         onClose()

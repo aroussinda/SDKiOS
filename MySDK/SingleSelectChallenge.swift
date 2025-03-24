@@ -31,8 +31,7 @@ struct SingleSelectChallengeView: View {
             VStack {
                 HStack{
                 
-                    Text("Single Select Challenge")
-                        .padding()
+                  
                     
                     Button(action: {
                         onClose()
