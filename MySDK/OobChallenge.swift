@@ -36,6 +36,7 @@ struct oobChallengeView: View {
                            Text("OOB Challenge")
                                .padding()
                                .frame(maxWidth: .infinity, alignment: .center)
+                    Spacer()
                            Button(action: {
                                onClose()
                            }) {
