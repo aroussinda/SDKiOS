@@ -32,6 +32,7 @@ struct oobChallengeView: View {
         NavigationView {
             VStack {
                 HStack{
+                    Spacer()
                            Text("OOB Challenge")
                                .padding()
                         
@@ -43,6 +44,7 @@ struct oobChallengeView: View {
 
                            }
                            .padding()
+               
                        } .frame(maxWidth: .infinity, alignment: .trailing)
 
                     
