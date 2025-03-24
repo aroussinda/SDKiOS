@@ -32,7 +32,7 @@ struct TextChallengeView: View {
         NavigationView {
             VStack {
                 HStack{
-                    Spacer()
+                   
                     Text("Text Challenge")
                         .padding()
                     

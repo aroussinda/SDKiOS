@@ -20,7 +20,7 @@ struct MultiSelectChallengeView: View {
         NavigationView {
             VStack {
                 HStack{
-                    Spacer()
+                   
                     Text("Multi Select Challenge")
                         .padding()
                     

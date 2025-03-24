@@ -30,7 +30,7 @@ struct SingleSelectChallengeView: View {
         NavigationView{
             VStack {
                 HStack{
-                    Spacer()
+                
                     Text("Single Select Challenge")
                         .padding()
                     
