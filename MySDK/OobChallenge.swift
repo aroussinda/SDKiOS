@@ -31,7 +31,8 @@ struct oobChallengeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                      
+                       HStack {
+                           Spacer()
                            Button(action: {
                                onClose()
                            }) {
@@ -214,7 +215,7 @@ struct oobChallengeView: View {
                 
             }
         }
-        
+        }
     }
     
 }
