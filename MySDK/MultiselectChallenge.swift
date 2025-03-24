@@ -23,7 +23,7 @@ struct MultiSelectChallengeView: View {
                     Spacer()
                     Text("Multi Select Challenge")
                         .frame(maxWidth: .infinity, alignment: .center)
-                    Spacer() // Pousse le bouton vers la droite
+                  
                     Button(action: {
                         onClose()
                     }) {
