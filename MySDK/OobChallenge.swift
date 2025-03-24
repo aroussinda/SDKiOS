@@ -17,6 +17,7 @@ struct oobChallengeView: View {
     private let selectCustomization = STDSSelectionCustomization.defaultSettings()
     private let footerCustomization = STDSFooterCustomization.defaultSettings()
     private let imageLoader = STDSImageLoader()
+
     private let navigationCustomization = STDSNavigationBarCustomization.defaultSettings()
 
     
@@ -29,7 +30,27 @@ struct oobChallengeView: View {
     var onClose: () -> Void
     var body: some View {
         NavigationView {
+            VStack {
+                       HStack {
+                           Spacer()
+                           Button(action: {
+                               onClose()
+                           }) {
+                               Image(systemName: "xmark.circle.fill")
+                                   .foregroundColor(.gray)
+                                   .font(.title)
+                           }
+                           .padding()
+                       }
+
+                       Text("Contenu de votre vue")
+                           .font(.title)
+                           .padding()
+
+                       Spacer()
+                   }
             ScrollView {
+                
                 VStack(alignment: .leading) {
                     
                     
@@ -194,7 +215,7 @@ struct oobChallengeView: View {
                 
             }
         }
-        .navigationBarTitle("Titre de la Vue")
+        
     }
     
 }
