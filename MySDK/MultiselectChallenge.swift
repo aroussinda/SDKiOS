@@ -18,113 +18,114 @@ struct MultiSelectChallengeView: View {
     var onClose: () -> Void
     var body: some View {
         NavigationView {
-            HStack{
-                Spacer()
-                       Text("Multi Select Challenge")
-                           .padding()
+            VStack {
+                HStack{
+                    Spacer()
+                    Text("Multi Select Challenge")
+                        .padding()
                     
-                       Button(action: {
-                           onClose()
-                       }) {
-                           Text("Close")
-                               .padding()
-
-                       }
-                       
-           
-                   } .frame(width: .infinity, alignment: .trailing)
-
+                    Button(action: {
+                        onClose()
+                    }) {
+                        Text("Close")
+                            .padding()
+                        
+                    }
+                    
+                    
+                } .frame(width: .infinity, alignment: .trailing)
                 
-
-            Divider() // Optional Divider
-            ScrollView {
-                VStack {
-                    VStack(alignment: .leading) {
-                        
-                        Text(response.challengeInfoHeader ?? "Security Challenge")
-                            .bold()
-                            .padding(.bottom, 5)
-                            .font(Font(textTitleCustomization.headingFont))
-                        
-                        Text(response.challengeInfoText ?? "")
-                             .padding(.bottom, 10)
-                            .font(Font(textBodyCustomization.headingFont))
-                        
-                        Text(response.challengeInfoLabel ?? "")
-                             .font(Font(textBodyCustomization.headingFont))
-                            .padding(.bottom, 2)
-
-                        // Iterate through the options
-                        ForEach(response.challengeSelectInfo ?? [], id: \.value) { option in
-                            MultiSelectRow(option: option,
-                                           selectCustomization: selectCustomization,
-                                           textBodyCustomization: textBodyCustomization,
-                                           isSelected: selectedOptions.contains(option.value)) {
-                                toggleSelection(option.value)
-                            }
-                        }
-                        
-                        // Submit Button
-                        Button(action: submitSelection) {
-                            Text(buttonCustomization.formatTitle(response.submitAuthenticationLabel ?? "Next", style: buttonCustomization.titleStyle))
-                                .font(.system(size: 16, weight: .bold))
-                                 .padding()
-                                .frame(maxWidth: .infinity)
+                
+                
+                Divider() // Optional Divider
+                ScrollView {
+                    VStack {
+                        VStack(alignment: .leading) {
                             
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                                .cornerRadius(buttonCustomization.cornerRadius)
-                        }
-                        .padding(.top, 20)
-                        .padding(.bottom, 20)
-                        .frame(width: .infinity, height: 50)
-
-                        Divider().frame(height: 4) // Optional Divider
-                    }
-                    .padding(.trailing, 20)
-                    .padding(.leading, 20)
-
-                    // Footer Section with expandable content
-                    VStack(alignment: .leading) {
-                        HStack(alignment: .top) {
-                            Image(systemName: showMore ? "chevron.up" : "chevron.down")
-                                .foregroundColor(.gray)
-                                .font(.system(size: 15)) // Adjust the size of the arrow
-
-                            Button(action: {
-                                withAnimation {
-                                    showMore.toggle() // Toggle the state when the button is tapped
+                            Text(response.challengeInfoHeader ?? "Security Challenge")
+                                .bold()
+                                .padding(.bottom, 5)
+                                .font(Font(textTitleCustomization.headingFont))
+                            
+                            Text(response.challengeInfoText ?? "")
+                                .padding(.bottom, 10)
+                                .font(Font(textBodyCustomization.headingFont))
+                            
+                            Text(response.challengeInfoLabel ?? "")
+                                .font(Font(textBodyCustomization.headingFont))
+                                .padding(.bottom, 2)
+                            
+                            // Iterate through the options
+                            ForEach(response.challengeSelectInfo ?? [], id: \.value) { option in
+                                MultiSelectRow(option: option,
+                                               selectCustomization: selectCustomization,
+                                               textBodyCustomization: textBodyCustomization,
+                                               isSelected: selectedOptions.contains(option.value)) {
+                                    toggleSelection(option.value)
                                 }
-                            }) {
-                                Text(response.whyInfoLabel ?? "")
-                                    .foregroundColor(.white )
-                               
+                            }
+                            
+                            // Submit Button
+                            Button(action: submitSelection) {
+                                Text(buttonCustomization.formatTitle(response.submitAuthenticationLabel ?? "Next", style: buttonCustomization.titleStyle))
+                                    .font(.system(size: 16, weight: .bold))
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                
+                                    .background(Color.blue)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(buttonCustomization.cornerRadius)
+                            }
+                            .padding(.top, 20)
+                            .padding(.bottom, 20)
+                            .frame(width: .infinity, height: 50)
+                            
+                            Divider().frame(height: 4) // Optional Divider
+                        }
+                        .padding(.trailing, 20)
+                        .padding(.leading, 20)
+                        
+                        // Footer Section with expandable content
+                        VStack(alignment: .leading) {
+                            HStack(alignment: .top) {
+                                Image(systemName: showMore ? "chevron.up" : "chevron.down")
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 15)) // Adjust the size of the arrow
+                                
+                                Button(action: {
+                                    withAnimation {
+                                        showMore.toggle() // Toggle the state when the button is tapped
+                                    }
+                                }) {
+                                    Text(response.whyInfoLabel ?? "")
+                                        .foregroundColor(.white )
+                                    
+                                        .multilineTextAlignment(.leading)
+                                        .padding(.bottom, 5)
+                                        .font(Font(textBodyCustomization.headingFont))
+                                    
+                                }
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                            .padding(.horizontal)
+                            
+                            if showMore {
+                                Text(response.whyInfoText ?? "")
                                     .multilineTextAlignment(.leading)
-                                    .padding(.bottom, 5)
+                                    .padding()
                                     .font(Font(textBodyCustomization.headingFont))
-                              
+                                
                             }
                         }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                        .padding(.horizontal)
-
-                        if showMore {
-                            Text(response.whyInfoText ?? "")
-                                .multilineTextAlignment(.leading)
-                                .padding()
-                                .font(Font(textBodyCustomization.headingFont))
-                          
-                        }
+                        .background(Color(footerCustomization.backgroundColor))
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
-                    .background(Color(footerCustomization.backgroundColor))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    
+                    
+                    
                 }
                 
-               
-               
             }
-          
-           
             
         }
     }
