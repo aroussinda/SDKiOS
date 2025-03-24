@@ -32,7 +32,9 @@ struct oobChallengeView: View {
         NavigationView {
             VStack {
                        HStack {
-                           Spacer()
+                           Text("Contenu de votre vue")
+                               .font(.title)
+                               .padding()
                            Button(action: {
                                onClose()
                            }) {
@@ -43,11 +45,8 @@ struct oobChallengeView: View {
                            .padding()
                        }
 
-                       Text("Contenu de votre vue")
-                           .font(.title)
-                           .padding()
+                    
 
-                       Spacer()
                 Divider().frame(height: 4) // Optional Divider
             ScrollView {
                 
