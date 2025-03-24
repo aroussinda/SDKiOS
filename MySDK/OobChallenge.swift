@@ -32,12 +32,17 @@ struct oobChallengeView: View {
         NavigationView {
             VStack {
                 HStack{
-                    Spacer()
-
+       
                            Text("OOB Challenge")
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        
-                         
+                               .padding()
+                               .frame(maxWidth: .infinity, alignment: .center)
+                           Button(action: {
+                               onClose()
+                           }) {
+                               Text("Close")
+                                   .padding()
+
+                           }
                            
                
                        } .frame(width: .infinity, alignment: .trailing)
