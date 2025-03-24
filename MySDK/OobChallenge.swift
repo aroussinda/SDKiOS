@@ -194,7 +194,7 @@ struct oobChallengeView: View {
                 
             }
         }
-        
+        .navigationTitle("Titre de la Vue")
     }
     
 }
