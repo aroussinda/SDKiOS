@@ -25,6 +25,7 @@ struct SheetViewHTML: View {
             }
             .padding()
         }
+        .navigationBarTitle("Titre de la Vue HTML")
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .cornerRadius(10)
