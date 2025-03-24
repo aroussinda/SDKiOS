@@ -15,15 +15,29 @@ struct SheetViewHTML: View {
     
     var body: some View {
         VStack {
+            HStack{
+                Spacer()
+                       Text("HTML Challenge")
+                           .padding()
+                    
+                       Button(action: {
+                           onClose()
+                       }) {
+                           Text("Close")
+                               .padding()
+
+                       }
+                       
+           
+                   } .frame(width: .infinity, alignment: .trailing)
+
+                
+
+            Divider() // Optional Divider
             WebView(buttonColor: "#FF5733",logoImageName: "Logo")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .cornerRadius(10)
                 .padding()
-            
-            Button("Close") {
-                onClose()
-            }
-            .padding()
         }
       
         .frame(maxWidth: .infinity, maxHeight: .infinity)

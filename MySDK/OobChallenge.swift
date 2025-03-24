@@ -43,9 +43,9 @@ struct oobChallengeView: View {
                                    .padding()
 
                            }
-                           .padding()
+                           
                
-                       } .frame( alignment: .trailing)
+                       } .frame(width: .infinity, alignment: .trailing)
 
                     
 

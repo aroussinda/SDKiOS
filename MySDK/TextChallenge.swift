@@ -30,6 +30,25 @@ struct TextChallengeView: View {
     var body: some View {
         
         NavigationView {
+            HStack{
+                Spacer()
+                       Text("Text Challenge")
+                           .padding()
+                    
+                       Button(action: {
+                           onClose()
+                       }) {
+                           Text("Close")
+                               .padding()
+
+                       }
+                       
+           
+                   } .frame(width: .infinity, alignment: .trailing)
+
+                
+
+            Divider() // Optional Divider
             ScrollView {
                 VStack(alignment: .leading) {
                     HStack (alignment: .center){
