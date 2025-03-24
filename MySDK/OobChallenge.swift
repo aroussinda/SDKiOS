@@ -31,10 +31,10 @@ struct oobChallengeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                       HStack {
-                           Text("Contenu de votre vue")
-                               .font(.title)
+                HStack (alignment: .lastTextBaseline){
+                           Text("OOB Challenge")
                                .padding()
+                        
                            Button(action: {
                                onClose()
                            }) {
