@@ -18,6 +18,25 @@ struct MultiSelectChallengeView: View {
     var onClose: () -> Void
     var body: some View {
         NavigationView {
+            HStack{
+                Spacer()
+                       Text("Multi Select Challenge")
+                           .padding()
+                    
+                       Button(action: {
+                           onClose()
+                       }) {
+                           Text("Close")
+                               .padding()
+
+                       }
+                       
+           
+                   } .frame(width: .infinity, alignment: .trailing)
+
+                
+
+            Divider() // Optional Divider
             ScrollView {
                 VStack {
                     VStack(alignment: .leading) {
