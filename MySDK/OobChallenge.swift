@@ -31,14 +31,13 @@ struct oobChallengeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                       HStack {
-                           Spacer()
+                      
                            Button(action: {
                                onClose()
                            }) {
-                               Image(systemName: "xmark.circle.fill")
-                                   .foregroundColor(.gray)
-                                   .font(.title)
+                               Text("Close")
+                                   .padding()
+
                            }
                            .padding()
                        }
@@ -48,7 +47,7 @@ struct oobChallengeView: View {
                            .padding()
 
                        Spacer()
-                   
+                Divider().frame(height: 4) // Optional Divider
             ScrollView {
                 
                 VStack(alignment: .leading) {
@@ -215,7 +214,7 @@ struct oobChallengeView: View {
                 
             }
         }
-        }
+        
     }
     
 }
