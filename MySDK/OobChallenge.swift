@@ -45,11 +45,11 @@ struct oobChallengeView: View {
                            }
                            .padding()
                
-                       } .frame(maxWidth: .infinity, alignment: .trailing)
+                       } .frame( alignment: .trailing)
 
                     
 
-                Divider().frame(height: 4) // Optional Divider
+                Divider() // Optional Divider
             ScrollView {
                 
                 VStack(alignment: .leading) {
